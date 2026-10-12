@@ -1,0 +1,10 @@
+// Static assets only: no Worker script and no build step. Website/ is committed as served;
+// scripts/publish.py writes its release files. Website/_headers (CSP, CORS on the JSON) is
+// applied by the assets runtime.
+{
+  "name": "apparition-illixion",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "./Website"
+  }
+}
