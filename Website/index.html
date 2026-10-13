@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apparition: on-device sideloading</title>
-<meta name="description" content="Apparition is an open-source sideloader that runs on your Apple devices, starting with Apple Vision Pro. Install apps from AltStore sources, sign them on the device with your own Apple ID, and keep them refreshed.">
+<meta name="description" content="Apparition is an open-source sideloader that runs on Apple Vision Pro, iPhone, iPad and Apple TV. Install apps from AltStore sources, sign them on the device with your own Apple ID, and keep them refreshed.">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#15122B" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#EEEDF7" media="(prefers-color-scheme: light)">
 <meta property="og:title" content="Apparition">
-<meta property="og:description" content="Sideloading that lives on your Apple devices, starting with Apple Vision Pro.">
+<meta property="og:description" content="Sideloading that lives on your Apple devices: Vision Pro, iPhone, iPad and Apple TV.">
 <meta property="og:image" content="https://apparition.illixion.com/apple-touch-icon.png">
 <meta property="og:url" content="https://apparition.illixion.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -40,7 +40,7 @@
     <div class="hero-copy">
       <h1 id="hero-title">Sideloading that lives on the device itself.</h1>
       <p class="lede">Apparition installs apps from AltStore sources, signs them right on your Apple device with your own Apple ID, and keeps them refreshed. Set it up from a computer once. After that, the device takes care of itself.</p>
-      <p class="platforms">Works today on Apple Vision Pro. iPhone and iPad are planned.</p>
+      <p class="platforms">For Apple Vision Pro, iPhone, iPad and Apple TV.</p>
       <div class="hero-actions">
         <a class="button primary" href="#download">Get Apparition</a>
         <a class="button quiet" href="#how">See how it works</a>
@@ -83,20 +83,19 @@
 
   <section id="how" class="how" aria-labelledby="how-title">
     <h2 id="how-title">Three steps, and only the first needs a computer</h2>
-    <p class="section-note">Shown here for Apple Vision Pro, the platform Apparition supports today.</p>
     <ol class="steps">
       <li>
         <h3>Install it once from a computer</h3>
-        <p>Download Apparition Installer for Windows, macOS or Linux. On the headset, open Settings &gt; General &gt; Remote Devices and pair over Wi-Fi with the PIN it shows. The installer signs Apparition and puts it on your Vision Pro.</p>
-        <p class="aside">The installer is a command-line tool today. A guided app is on its way.</p>
+        <p>Download the Apparition desktop app for macOS, Windows or Linux and pair your device. On Vision Pro, open Settings &gt; General &gt; Remote Devices and type the code it shows; Apple TV pairs the same way from Settings &gt; Remotes and Devices. An iPhone or iPad needs a cable once, unless it already syncs with your Mac over Wi-Fi. Then sign in and install.</p>
+        <p class="aside">Prefer a terminal? The <code>apparition</code> command line does the same.</p>
       </li>
       <li>
-        <h3>Sign in on the headset</h3>
-        <p>Sign in with your Apple ID, or import your own developer certificate. When the installer set things up, Apparition can reuse the same signing certificate, so the two don't each take one of a free account's slots.</p>
+        <h3>It arrives ready to sign</h3>
+        <p>The desktop app hands Apparition the pairing and the signing it used, so there's nothing to set up twice, and the two don't each take one of a free account's certificates.</p>
       </li>
       <li>
         <h3>Install apps, and let them refresh</h3>
-        <p>Add a source and install from it, right on the headset. A daily Shortcuts automation re-signs your apps before they expire.</p>
+        <p>Add a source and install from it, right on the device. A daily Shortcuts automation re-signs your apps before they expire.</p>
       </li>
     </ol>
   </section>
@@ -110,23 +109,27 @@
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg>Signing on the device</dt>
-        <dd>Apps are signed on your Vision Pro with your own Apple ID. Your password goes straight to Apple, and can stay in the headset's Keychain so refreshes run without you.</dd>
+        <dd>Apps are signed on the device with your own Apple ID; a free one works. Your password goes only to Apple, and can stay in the device's Keychain so refreshes run without you.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5"/></svg>Refresh with Shortcuts</dt>
-        <dd>The Refresh Apps action re-signs whatever expires within three days. Run it from a daily automation, or ask Siri. Apps keep their files on the headset, so a refresh needs no download and your app data stays put.</dd>
+        <dd>The Refresh Apps action re-signs whatever expires within three days. Run it from a daily automation, or ask Siri. Apps keep their files on the device, so a refresh needs no download and your app data stays put.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>Launch with JIT</dt>
-        <dd>Open apps like UTM with debugger-prepared JIT from the headset: from Apparition, a shortcut, or Siri.</dd>
+        <dd>Open apps like UTM with JIT, prepared by the debugger the way Xcode does it: from Apparition, a shortcut, or Siri.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>Your own certificate</dt>
         <dd>With a paid developer account, import a .p12 and provisioning profiles. Apps then sign for as long as the profile lasts, usually a year, with no sign-in and no free-account limits.</dd>
       </div>
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>Companion relay</dt>
-        <dd>Apparition Companion, on your Mac's menu bar or a PC, relays the headset's connection in place of LocalDevVPN. It only carries encrypted traffic. Put the headset on Tailscale and a companion at home keeps signing and JIT working from anywhere.</dd>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A companion on your computer</dt>
+        <dd>Left running in the menu bar or tray, the desktop app relays the device's connection in place of LocalDevVPN, carrying only encrypted traffic, and offers it anisette. Put the device on Tailscale and a companion at home keeps signing and JIT working from anywhere.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>One certificate for all your devices</dt>
+        <dd>A free account has only two certificates. Share one between your devices and computers, sealed under five words, and they all sign with it.</dd>
       </div>
     </dl>
   </section>
@@ -136,15 +139,19 @@
     <div class="qa">
       <details open>
         <summary>What do I need?</summary>
-        <p>Today, an Apple Vision Pro, and a Windows, macOS or Linux computer on the same Wi-Fi for the first install. To sign apps you need an Apple ID or your own developer certificate. Refreshing and launching with JIT need Apparition Companion or LocalDevVPN.</p>
+        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a macOS, Windows or Linux computer for the first install. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate. Refreshing and launching with JIT need the companion or LocalDevVPN.</p>
       </details>
       <details>
         <summary>What are the limits of a free Apple ID?</summary>
-        <p>Apple allows 3 sideloaded apps and 10 App IDs per week on a free account, and apps signed with it have to be re-signed every 7 days. That's the reason Apparition refreshes them. A paid developer certificate lifts these limits for as long as its profile lasts.</p>
+        <p>Apple allows 3 sideloaded apps per device, 10 App IDs per week and two certificates on a free account, and apps signed with it have to be re-signed every 7 days. That's the reason Apparition refreshes them. When the 3-app limit is reached, Apparition shows what's installed and lets you remove one. A paid developer certificate lifts these limits for as long as its profile lasts.</p>
       </details>
       <details>
         <summary>What is an anisette server, and which one should I use?</summary>
-        <p>Signing in to Apple needs an anisette server, and Apparition doesn't ship a default. Enter the address of one you trust, or host your own with the Docker Compose file in the repository; Apparition Companion can start it for you. The server sees the headset's anisette identity and IP address, never your Apple ID or password.</p>
+        <p>Signing in to Apple needs "anisette" data that identifies the device. On macOS and Linux the desktop app makes its own, and offers it to your devices as their companion; there's nothing to set up. On Windows, use another of your computers running Apparition, or any anisette server you trust, or host one with the Docker Compose file in the repository. A server sees the anisette identity and IP address, never your Apple ID or password.</p>
+      </details>
+      <details>
+        <summary>Signing in fails with error -80045. What now?</summary>
+        <p>Since 12 October 2026 Apple refuses sign-ins whose anisette doesn't match the device they claim to be, which broke most sideloaders. Apparition handles it. The first sign-in from a computer or device Apple hasn't seen asks for the code Apple sends to your other devices; after that, no code is needed. Accounts with no trusted devices, only a phone number for codes, can't sign in this way yet.</p>
       </details>
       <details>
         <summary>My Apple ID uses security keys. Can I still use it?</summary>
@@ -152,11 +159,11 @@
       </details>
       <details>
         <summary>Will my apps refresh on their own?</summary>
-        <p>Apparition asks visionOS for background time, but that isn't dependable. A daily Shortcuts automation is: pick a time you usually wear the headset, add Refresh Apps, and turn on Remember password. When a refresh can't run, the action says why.</p>
+        <p>Apparition asks the system for background time, but that isn't dependable. A daily Shortcuts automation is: pick a time you usually use the device, add Refresh Apps, and turn on Remember password. When a refresh can't run, the action says why.</p>
       </details>
       <details>
-        <summary>Does it work on iPhone or iPad?</summary>
-        <p>Not yet. Apple Vision Pro is the platform that works today; iPhone, iPad and other Apple platforms are planned.</p>
+        <summary>Which devices does it work on?</summary>
+        <p>Apple Vision Pro, iPhone, iPad and Apple TV, each with its own build. The desktop app picks the right one for the device you pair.</p>
       </details>
       <details>
         <summary>Is it on the App Store?</summary>

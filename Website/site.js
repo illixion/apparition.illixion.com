@@ -96,7 +96,7 @@
       .filter(Boolean).join(", ");
 
     var a = link(href, "installer" + (mine ? " is-yours" : ""));
-    a.appendChild(el("span", "installer-name", "Installer for " + osName));
+    a.appendChild(el("span", "installer-name", "Apparition for " + osName));
     if (meta) a.appendChild(el("span", "installer-meta", meta));
     if (mine) a.appendChild(el("span", "installer-meta", "Matches this computer"));
     if (asset.name) a.setAttribute("download", "");
@@ -155,7 +155,7 @@
     });
     if (list.childNodes.length) {
       frag.appendChild(el("p", "release-lead",
-        "Apparition Installer puts Apparition on your device from a computer, once."));
+        "The desktop app puts Apparition on your device, then can stay in the menu bar or tray as its companion."));
       frag.appendChild(list);
     }
 

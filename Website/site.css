@@ -544,3 +544,5 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
 }
 .release-lead { margin-top: 1.5rem; color: var(--ink); }
 .release-lead + .installers { margin-top: 1rem; }
+
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; font-style: normal; }
