@@ -125,7 +125,7 @@
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A companion on your computer</dt>
-        <dd>Left running in the menu bar or tray, the desktop app relays the device's connection in place of LocalDevVPN, carrying only encrypted traffic, and offers it anisette. Put the device on Tailscale and a companion at home keeps signing and JIT working from anywhere.</dd>
+        <dd>Left running in the menu bar or tray, the desktop app relays the device's connection in place of LocalDevVPN, carrying only encrypted traffic, and offers it anisette. Put the device on Tailscale and a companion at home keeps signing, refreshing and JIT working from anywhere.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>One certificate for all your devices</dt>
@@ -156,6 +156,10 @@
       <details>
         <summary>My Apple ID uses security keys. Can I still use it?</summary>
         <p>Not for signing. Create a separate free Apple ID for sideloading and sign in with that.</p>
+      </details>
+      <details>
+        <summary>Does it work away from home?</summary>
+        <p>Yes, JIT included, over Tailscale. Put the device and the computer running the desktop app on the same tailnet, then in Apparition's Setup type the computer's Tailscale address with port 49160 (<code>100.x.y.z:49160</code>) and use its anisette. The computer at home then keeps signing and refreshing your apps, and launching them with JIT, wherever you are. AltStore and SideStore need the same Wi-Fi or LocalDevVPN for that. <a href="https://github.com/illixion/Apparition#away-from-home-over-tailscale">Step by step</a>.</p>
       </details>
       <details>
         <summary>Will my apps refresh on their own?</summary>
