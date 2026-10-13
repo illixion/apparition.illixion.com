@@ -1,0 +1,92 @@
+{
+  "format": "apparition-releases",
+  "version": 1,
+  "latest": "0.1.0",
+  "releases": [
+    {
+      "version": "0.1.0",
+      "build": 99,
+      "date": "2026-10-13T23:19:14Z",
+      "notes": "First release. Sideload, sign and refresh apps on the device itself, on Apple Vision Pro, iPhone, iPad and Apple TV, with a free Apple ID (working again after Apple's 12 October change) or your own certificate. The desktop app for macOS, Windows and Linux installs it and can stay on as its companion.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.1.0/SHA256SUMS",
+      "signature": "releases/0.1.0/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.1.0-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 10828370,
+          "sha256": "e3a7413dc28456f5f430548a932ddab7a8383067bd1257dedfab84f07bd5d7fc",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-0.1.0-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.1.0-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 10071188,
+          "sha256": "1479c46b3e586331ef4acd3e87debcdf4e3e314a5cff19a1aa9ea2ff84ae0cee",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-0.1.0-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.1.0-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 17569780,
+          "sha256": "19aa138711ef0257fcffbb80e7f6c1ae1b838de04abc798a2e8f18a8c2e36017",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-0.1.0-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.1.0-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 113499629,
+          "sha256": "ad3fb73044aaed2698c946b8d9e6420e020603ba4a6e3f41a8677a35a571ab92",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-Installer-0.1.0-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.1.0-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 116054445,
+          "sha256": "306d36df470a9941440b3e7efa36f01b9a74eb4ef0749d5fca0d39d9b85b5227",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-Installer-0.1.0-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.1.0-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 45403372,
+          "sha256": "72aead45e7b0a4823d951b9809cf7c826fd195060f6b330bcc088c9bf8b857d7",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-Installer-0.1.0-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.1.0-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 41040782,
+          "sha256": "cea1554494843060892c76a45c2a5849e6fb2444b0c159e707bd44119f29f4c5",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-Installer-0.1.0-windows-x86_64.zip"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Apparition for visionOS",
+  "identifier": "com.illixion.apparition.source.visionos",
+  "subtitle": "The on-device sideloader",
+  "description": "Official releases of Apparition. Every release is signed; see apparition.illixion.com.",
+  "iconURL": "https://apparition.illixion.com/icon.png",
+  "website": "https://apparition.illixion.com",
+  "tintColor": "#8B7CF6",
+  "apps": [
+    {
+      "name": "Apparition",
+      "bundleIdentifier": "com.illixion.apparition",
+      "developerName": "Illixion",
+      "subtitle": "Sideload, sign and refresh apps on the device itself",
+      "localizedDescription": "Install apps from AltStore-format sources, sign them on the device with a free Apple ID or your own certificate, keep them refreshed, and launch them with JIT.",
+      "iconURL": "https://apparition.illixion.com/icon.png",
+      "tintColor": "#8B7CF6",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "buildVersion": "99",
+          "date": "2026-10-13T23:19:14Z",
+          "localizedDescription": "First release. Sideload, sign and refresh apps on the device itself, on Apple Vision Pro, iPhone, iPad and Apple TV, with a free Apple ID (working again after Apple's 12 October change) or your own certificate. The desktop app for macOS, Windows and Linux installs it and can stay on as its companion.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.1.0/Apparition-0.1.0-visionOS.ipa",
+          "size": 17569780,
+          "sha256": "19aa138711ef0257fcffbb80e7f6c1ae1b838de04abc798a2e8f18a8c2e36017",
+          "minOSVersion": "26.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": []
+}
