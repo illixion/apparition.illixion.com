@@ -29,12 +29,17 @@ project's signatures from passing as the other's.
 
 ## Publishing a release
 
-In the Apparition repo, after committing the version bump (project.yml and installer/Cargo.toml):
+In the Apparition repo, after committing the version bump (project.yml, installer/Cargo.toml and
+desktop/Cargo.toml), build on GitHub Actions, then check and release what it built:
 
 ```sh
-scripts/package-release.sh 0.2.0 --linux      # build/release/0.2.0/: the IPA and the installers
-gh release create v0.2.0 build/release/0.2.0/*  # or upload them anywhere
+gh workflow run release.yml -R illixion/Apparition -f version=0.2.0   # or push a v0.2.0 tag
+gh run download <run id> -R illixion/Apparition -n release-0.2.0 -D ../Apparition/build/release/0.2.0
+for f in ../Apparition/build/release/0.2.0/Apparition-*; do gh attestation verify "$f" -R illixion/Apparition; done
+gh release create v0.2.0 ../Apparition/build/release/0.2.0/Apparition-* -R illixion/Apparition
 ```
+
+(`scripts/package-release.sh 0.2.0 --linux` in the Apparition repo builds the same files locally.)
 
 Then here:
 
