@@ -39,7 +39,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <h1 id="hero-title">Sideloading that lives on the device itself.</h1>
-      <p class="lede">Apparition installs apps from AltStore sources, signs them right on your Apple device with your own Apple ID, and keeps them refreshed. Set it up from a computer once. After that, the device takes care of itself.</p>
+      <p class="lede">Apparition installs apps from AltStore sources, signs them right on your Apple device with your own Apple ID, and keeps them refreshed. Set it up from a computer once. After that, it refreshes through a computer left running at home, reachable from anywhere over Tailscale, or with no computer at all through LocalDevVPN.</p>
       <p class="platforms">For Apple Vision Pro, iPhone, iPad and Apple TV.</p>
       <div class="hero-actions">
         <a class="button primary" href="#download">Get Apparition</a>
@@ -86,7 +86,7 @@
     <ol class="steps">
       <li>
         <h3>Install it once from a computer</h3>
-        <p>Download the Apparition desktop app for macOS, Windows or Linux and pair your device. On Vision Pro, open Settings &gt; General &gt; Remote Devices and type the code it shows; Apple TV pairs the same way from Settings &gt; Remotes and Devices. An iPhone or iPad needs a cable once, unless it already syncs with your Mac over Wi-Fi. Then sign in and install.</p>
+        <p>Download the Apparition desktop app for macOS, Windows or Linux and pair your device. On Vision Pro, open Settings &gt; General &gt; Remote Devices and type the code it shows; Apple TV pairs the same way from Settings &gt; Remotes and Devices &gt; Remote App and Devices, and shows a second code for Apparition. An iPhone or iPad pairs over a USB cable once, unless it already syncs with your Mac over Wi-Fi. Then sign in and install.</p>
         <p class="aside">Prefer a terminal? The <code>apparition</code> command line does the same.</p>
       </li>
       <li>
@@ -95,7 +95,7 @@
       </li>
       <li>
         <h3>Install apps, and let them refresh</h3>
-        <p>Add a source and install from it, right on the device. A daily Shortcuts automation re-signs your apps before they expire.</p>
+        <p>Add a source and install from it, right on the device. A daily Shortcuts automation re-signs your apps before they expire. Refreshing, and launching apps with JIT, go through the desktop app left running as Apparition's companion, which doesn't need the same Wi-Fi, or through the free LocalDevVPN app on the device.</p>
       </li>
     </ol>
   </section>
