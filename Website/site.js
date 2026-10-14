@@ -42,6 +42,14 @@
     return a;
   }
 
+  // Counts a click as a Umami event (self-hosted, stats.illixion.com). A plain listener rather
+  // than data-umami-event, whose handler holds the download until the beacon returns.
+  function track(node, name, data) {
+    node.addEventListener("click", function () {
+      if (window.umami) window.umami.track(name, data);
+    });
+  }
+
   function formatSize(bytes) {
     if (typeof bytes !== "number" || !isFinite(bytes) || bytes <= 0) return "";
     if (bytes >= 1e9) return (bytes / 1e9).toFixed(1) + " GB";
@@ -100,6 +108,7 @@
     if (meta) a.appendChild(el("span", "installer-meta", meta));
     if (mine) a.appendChild(el("span", "installer-meta", "Matches this computer"));
     if (asset.name) a.setAttribute("download", "");
+    track(a, "download", { kind: "desktop", platform: String(asset.platform || ""), yours: !!mine });
     var li = el("li");
     li.appendChild(a);
     return li;
@@ -176,6 +185,7 @@
         var p = el("p");
         var a = link(href, null, "Download the IPA");
         a.setAttribute("download", "");
+        track(a, "download", { kind: "ipa", platform: platform });
         p.appendChild(a);
         var size = formatSize(asset.size);
         p.appendChild(document.createTextNode(
@@ -183,9 +193,14 @@
         block.appendChild(p);
       }
       var row = el("div", "source-row");
-      row.appendChild(link(sourceUrl, null, "Add source"));
+      var add = link(sourceUrl, null, "Add source");
+      track(add, "add-source", { platform: platform, via: "link" });
+      row.appendChild(add);
       var copy = copyButton(sourceUrl);
-      if (copy) row.appendChild(copy);
+      if (copy) {
+        track(copy, "add-source", { platform: platform, via: "copy" });
+        row.appendChild(copy);
+      }
       block.appendChild(row);
       block.appendChild(el("p", "source-url", sourceUrl));
       extra.appendChild(block);
