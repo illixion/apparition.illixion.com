@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.1.1",
+          "buildVersion": "108",
+          "date": "2026-10-14T08:48:50Z",
+          "localizedDescription": "Add sources from a link: an \"Add to Apparition\" button on a source's page (apparition://source?url=\u2026) opens Add Source with it filled in, ready to add. The desktop app's pairing steps now cover Apple TV too, including the second code it shows for Apparition.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.1.1/Apparition-0.1.1-visionOS.ipa",
+          "size": 17575661,
+          "sha256": "c245c2579cd6afb39e6e576a1046a4009d51169e04284ec39355d6f780aaf5a8",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.1.0",
           "buildVersion": "99",
           "date": "2026-10-13T23:19:14Z",
