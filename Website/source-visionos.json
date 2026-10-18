@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.2.0",
+          "buildVersion": "118",
+          "date": "2026-10-18T09:52:46Z",
+          "localizedDescription": "Apparition can now be Madeira's JIT debugger. It answers the links Madeira opens, serves the game for its whole run, and can attach to an app that is already running. While it debugs, Apparition keeps running in the background (silent audio on visionOS, coarse location on iOS) and shows \"Debugging Madeira\" beside the tabs and in a notification, each with a Stop button. Apps that ask for the increased memory limit get it, along with extended virtual addressing on paid teams.\n\nA new install is now waited for until it finishes; only an update to an app that's open is left queued.\n\nOn the command line, `apparition jit` starts or attaches a JIT session and `apparition sign` signs for a paired device without reaching it.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-0.2.0-visionOS.ipa",
+          "size": 17669588,
+          "sha256": "a874270bb253aae2ec1cac38057991f5b6a27ea91159bf0848337798c28ba719",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.1.1",
           "buildVersion": "108",
           "date": "2026-10-14T08:48:50Z",

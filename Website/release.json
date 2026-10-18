@@ -1,8 +1,93 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.1.1",
+  "latest": "0.2.0",
   "releases": [
+    {
+      "version": "0.2.0",
+      "build": 118,
+      "date": "2026-10-18T09:52:46Z",
+      "notes": "Apparition can now be Madeira's JIT debugger. It answers the links Madeira opens, serves the game for its whole run, and can attach to an app that is already running. While it debugs, Apparition keeps running in the background (silent audio on visionOS, coarse location on iOS) and shows \"Debugging Madeira\" beside the tabs and in a notification, each with a Stop button. Apps that ask for the increased memory limit get it, along with extended virtual addressing on paid teams.\n\nA new install is now waited for until it finishes; only an update to an app that's open is left queued.\n\nOn the command line, `apparition jit` starts or attaches a JIT session and `apparition sign` signs for a paired device without reaching it.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.2.0/SHA256SUMS",
+      "signature": "releases/0.2.0/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.2.0-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 10932374,
+          "sha256": "b1f0ba2bfacf82a3efeef1c6d9dc8401a109790d8ba08a8be401e5b79541daf9",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-0.2.0-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.2.0-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 10142681,
+          "sha256": "9801da65e3c7b4130c0096ad78f3788205ca53dc177b1539546b58852841d10f",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-0.2.0-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.2.0-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 17669588,
+          "sha256": "a874270bb253aae2ec1cac38057991f5b6a27ea91159bf0848337798c28ba719",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-0.2.0-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.2.0-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 113688729,
+          "sha256": "399bc10386b1bf4260cbad8ff14576f73b8c1651bffdbc7a254b5998a176c3a9",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-Installer-0.2.0-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.2.0-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 116270954,
+          "sha256": "367e02b9010f4d90f32d0b53d672ca76cb3ba650dd688c5c0c49da5bf0fa5bbb",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-Installer-0.2.0-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.2.0-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 45751141,
+          "sha256": "eb869c07245511dbbae9e244a97110cfcdbf0bd5165c9637074378c00d4276e9",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-Installer-0.2.0-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.2.0-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 41185434,
+          "sha256": "22d31363e59213d280cd3c62b2db8249e6ced1b29d8ad2c7303012d1f652377c",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.2.0/Apparition-Installer-0.2.0-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.1.1",
       "build": 108,
