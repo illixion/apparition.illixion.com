@@ -129,7 +129,35 @@
     return button;
   }
 
-  function renderRelease(root, release) {
+  function versionKey(version) {
+    return String(version).split("-")[0].split(".").map(function (p) { return parseInt(p, 10) || 0; });
+  }
+
+  function newerVersion(a, b) {
+    var x = versionKey(a), y = versionKey(b);
+    for (var i = 0; i < Math.max(x.length, y.length); i++) {
+      if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+    }
+    return false;
+  }
+
+  function installersOf(release) {
+    var assets = release && Array.isArray(release.assets) ? release.assets : [];
+    return assets.filter(function (a) { return a && a.kind === "installer"; });
+  }
+
+  // A release that only fixes the apps has no installers; the desktop app is then the newest
+  // one that has them, which is the release's own when it carries any.
+  function installerRelease(releases, release) {
+    if (installersOf(release).length) return release;
+    var best = null;
+    releases.forEach(function (r) {
+      if (r && installersOf(r).length && (!best || newerVersion(r.version, best.version))) best = r;
+    });
+    return best;
+  }
+
+  function renderRelease(root, release, installers) {
     var frag = document.createDocumentFragment();
     var assets = Array.isArray(release.assets) ? release.assets : [];
 
@@ -144,7 +172,8 @@
 
     // Installers: the visitor's OS first and highlighted, then the rest.
     var mine = visitorOS();
-    var installers = assets.filter(function (a) { return a && a.kind === "installer"; });
+    var fromRelease = installers || release;
+    installers = installersOf(fromRelease);
     function rank(asset) {
       var os = splitPlatform(asset.platform).os;
       if (os === mine) return -1;
@@ -165,6 +194,11 @@
     if (list.childNodes.length) {
       frag.appendChild(el("p", "release-lead",
         "The desktop app puts Apparition on your device, then can stay in the menu bar or tray as its companion."));
+      if (fromRelease.version !== release.version) {
+        frag.appendChild(el("p", "release-lead",
+          "These are version " + fromRelease.version + ", the newest desktop app. Version " + release.version +
+          " changes only the apps on your device, and the desktop app installs the latest of them."));
+      }
       frag.appendChild(list);
     }
 
@@ -244,7 +278,7 @@
           return r && r.version === data.latest;
         })[0];
         if (!release) throw new Error("Latest release not listed");
-        renderRelease(root, release);
+        renderRelease(root, release, installerRelease(data.releases, release));
       })
       .catch(function () { renderSoon(root); });
   }

@@ -52,5 +52,11 @@ git add -A && git commit -m "Release 0.2.0" && git push
 
 `add` hashes the files, signs the manifest (`scripts/bless.sh`, which asks the YubiKey for a PIN
 and touch, so run it in the foreground), checks the signature, and lists the release as latest.
-`--key-file <backup>` signs with the offline key instead. Add a mirror later with
+`--key-file <backup>` signs with the offline key instead. A fix that changes only the Apple apps can be an app-only release: run the workflow with
+`-f parts=app` (only `project.yml`'s version needs bumping then), and `add` takes the folder of
+IPAs alone. Apparition updates itself from it, since it needs only its own platform's app. The
+desktop app's update check ignores a release without an installer for its platform, and the site
+keeps offering the installers of the newest release that has them, with a note.
+
+Add a mirror later with
 `scripts/publish.py urls 0.2.0 <file> <url> --append`.
