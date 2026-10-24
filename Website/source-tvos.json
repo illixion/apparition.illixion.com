@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.3.2",
+          "buildVersion": "151",
+          "date": "2026-10-24T21:09:49Z",
+          "localizedDescription": "Apps published as a `.deb` package, such as Kodi, now install. Apparition unpacks the app from the package, so Kodi's official download works as it is. On a Vision Pro, iPhone or iPad, download the `.ipa` or `.deb` in Safari and share it to Apparition, or open it from Files, or use Library > Install from a File: Apparition names the app and asks before installing it. The desktop app (Advanced, An app file) and `apparition install` take a `.deb` too, and a source can list one.\n\nSigning no longer fails on apps that carry object files, which Kodi's bundled Python does (`__LINKEDIT isn't final Mach-O segment`, #7).\n\nA key arriving from another device keeps your Apple ID session, and sign-ins that can't be answered no longer prompt for 2FA. iPhone and iPad build from the main Apparition scheme. The desktop app's window buttons on macOS now line up with the header.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-0.3.2-tvOS.ipa",
+          "size": 11586871,
+          "sha256": "a5a712026da68c2eaff9fca15f6ce060b6b7efba461367db9662611ebf52fa53",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.3.1",
           "buildVersion": "138",
           "date": "2026-10-24T18:45:44Z",

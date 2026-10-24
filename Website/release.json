@@ -1,8 +1,93 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.3.1",
+  "latest": "0.3.2",
   "releases": [
+    {
+      "version": "0.3.2",
+      "build": 151,
+      "date": "2026-10-24T21:09:49Z",
+      "notes": "Apps published as a `.deb` package, such as Kodi, now install. Apparition unpacks the app from the package, so Kodi's official download works as it is. On a Vision Pro, iPhone or iPad, download the `.ipa` or `.deb` in Safari and share it to Apparition, or open it from Files, or use Library > Install from a File: Apparition names the app and asks before installing it. The desktop app (Advanced, An app file) and `apparition install` take a `.deb` too, and a source can list one.\n\nSigning no longer fails on apps that carry object files, which Kodi's bundled Python does (`__LINKEDIT isn't final Mach-O segment`, #7).\n\nA key arriving from another device keeps your Apple ID session, and sign-ins that can't be answered no longer prompt for 2FA. iPhone and iPad build from the main Apparition scheme. The desktop app's window buttons on macOS now line up with the header.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.3.2/SHA256SUMS",
+      "signature": "releases/0.3.2/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.3.2-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11348551,
+          "sha256": "14645e4ca065e954ff4dc2b1196fd7f88f8bf73c2b18906b868e1e747c9feb54",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-0.3.2-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.2-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11586871,
+          "sha256": "a5a712026da68c2eaff9fca15f6ce060b6b7efba461367db9662611ebf52fa53",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-0.3.2-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.2-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 18101754,
+          "sha256": "5004e3c7eadca5d8f6c44cb88d577175e2cd12ec7b9fdba4e0a0b6904f230dd0",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-0.3.2-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.2-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 114623965,
+          "sha256": "b92c908121cc183251a1f7a0921cf3574192e7c5ab9650f725847c7b5affc42a",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-Installer-0.3.2-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.2-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 117224253,
+          "sha256": "12e2dffc52ebb40650e914bc295e6c63bda79898a477390373818cfe6429a4a8",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-Installer-0.3.2-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.2-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 47057256,
+          "sha256": "727ea4d2f5796a69efb079185e4daea398bf908889e46602f67f8506a9686a5e",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-Installer-0.3.2-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.2-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 42031044,
+          "sha256": "a46d5617e1a97bafbd815ffc7f52e9015ab6e016e9db1c33e114abdd5c40b704",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.2/Apparition-Installer-0.3.2-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.3.1",
       "build": 138,
