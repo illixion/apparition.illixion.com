@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.3.1",
+          "buildVersion": "138",
+          "date": "2026-10-24T18:45:44Z",
+          "localizedDescription": "Fixes the Enable JIT prompt on Apple Vision Pro: it opens in its own window in front of you instead of a popover that could land out of reach. Apps only; the desktop installers stay at 0.3.0.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.3.1/Apparition-0.3.1-tvOS.ipa",
+          "size": 11396709,
+          "sha256": "7a479c6e141340693a659b2e99ae0d0027930cdee003c3da3023c182cebdd615",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.3.0",
           "buildVersion": "135",
           "date": "2026-10-24T16:54:43Z",

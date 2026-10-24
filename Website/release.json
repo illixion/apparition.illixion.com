@@ -1,8 +1,53 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.3.0",
+  "latest": "0.3.1",
   "releases": [
+    {
+      "version": "0.3.1",
+      "build": 138,
+      "date": "2026-10-24T18:45:44Z",
+      "notes": "Fixes the Enable JIT prompt on Apple Vision Pro: it opens in its own window in front of you instead of a popover that could land out of reach. Apps only; the desktop installers stay at 0.3.0.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.3.1/SHA256SUMS",
+      "signature": "releases/0.3.1/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.3.1-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11149313,
+          "sha256": "6dbfad983a586c992355e2239f9b6dd6625c99130069cb16acfcbf29a4137b62",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.1/Apparition-0.3.1-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.1-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11396709,
+          "sha256": "7a479c6e141340693a659b2e99ae0d0027930cdee003c3da3023c182cebdd615",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.1/Apparition-0.3.1-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.1-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 17900631,
+          "sha256": "84513161bd2a76ee8cbe2e590253962be11c28460041461922f4a3a3458ab7e6",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.1/Apparition-0.3.1-visionOS.ipa"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.3.0",
       "build": 135,
