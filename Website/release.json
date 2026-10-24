@@ -1,8 +1,93 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.2.0",
+  "latest": "0.3.0",
   "releases": [
+    {
+      "version": "0.3.0",
+      "build": 135,
+      "date": "2026-10-24T16:54:43Z",
+      "notes": "Signing in with the built-in anisette works again. Since 22 October Apple refuses the developer token (-80046) to sign-ins that claim to be an Android phone, which the built-in anisette has to claim, so Apparition now claims a Mac for that one request. Apparition also claims whatever each anisette server reports, so servers that don't run Apple's Android libraries work too.\n\nYour devices now share one certificate instead of making one each. Signing stops before it would make a second Apparition certificate and offers to get the key from the device that has it, nearby over the local network, checked by a six-digit code both screens show: Settings > Get Signing from Another Device and Share Signing with Another Device, Apple TV included. The desktop app and `apparition signing send` and `signing receive` do the same. When the account has no certificate left, Apparition offers this before revoking one, and `apparition signing hand-off` gives the computer's key to an Apparition installed another way.\n\nOn Apple TV, free accounts now get a tvOS profile instead of error 8220, Apparition has a home screen icon, and Refresh All is at the top of the Library. Signing refuses an app built for other devices before it uses up one of the week's ten App IDs, and says which version to look for. Adding a source again takes its new options.\n\nThanks to valentinBoch for the tvOS profile, icon, anisette and isideload 0.5.0 work (#1, #3, #4, #5, #6).",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.3.0/SHA256SUMS",
+      "signature": "releases/0.3.0/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.3.0-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11150392,
+          "sha256": "1eb25207504e39d39708b48d9ebc49dc82c5264b4d3c75847e93863c772c8134",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-0.3.0-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.0-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11396775,
+          "sha256": "4c50a5bbd8e8e3ff1e63f3671865fefc7047a58a148068b82eab7e47fa9f2af3",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-0.3.0-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.0-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 17888062,
+          "sha256": "c55f8d1b5e8f37f418562a5e6e516b5da964772c54b80716a43b1a525710aa7a",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-0.3.0-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.0-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 114129751,
+          "sha256": "488226dbae99436e21614418c331c973dbf26beca6dbd6f29bd55891a6effd17",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-Installer-0.3.0-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.0-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 116778087,
+          "sha256": "72335f7644619836918c6d861a08bf60698151eb35f3f2ce6f84ceb5ea571076",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-Installer-0.3.0-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.0-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 46403172,
+          "sha256": "e3e8a263edbc15a2cd5fa6e98bcd8cb1150686bc3d58bd047200db9a4ec4fc0d",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-Installer-0.3.0-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.0-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 41719272,
+          "sha256": "99c4b9cf23c868fd186080d53c3948b43227ffa4d584a2bae907aee4fa0ae03b",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-Installer-0.3.0-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.2.0",
       "build": 118,

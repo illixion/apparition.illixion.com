@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.3.0",
+          "buildVersion": "135",
+          "date": "2026-10-24T16:54:43Z",
+          "localizedDescription": "Signing in with the built-in anisette works again. Since 22 October Apple refuses the developer token (-80046) to sign-ins that claim to be an Android phone, which the built-in anisette has to claim, so Apparition now claims a Mac for that one request. Apparition also claims whatever each anisette server reports, so servers that don't run Apple's Android libraries work too.\n\nYour devices now share one certificate instead of making one each. Signing stops before it would make a second Apparition certificate and offers to get the key from the device that has it, nearby over the local network, checked by a six-digit code both screens show: Settings > Get Signing from Another Device and Share Signing with Another Device, Apple TV included. The desktop app and `apparition signing send` and `signing receive` do the same. When the account has no certificate left, Apparition offers this before revoking one, and `apparition signing hand-off` gives the computer's key to an Apparition installed another way.\n\nOn Apple TV, free accounts now get a tvOS profile instead of error 8220, Apparition has a home screen icon, and Refresh All is at the top of the Library. Signing refuses an app built for other devices before it uses up one of the week's ten App IDs, and says which version to look for. Adding a source again takes its new options.\n\nThanks to valentinBoch for the tvOS profile, icon, anisette and isideload 0.5.0 work (#1, #3, #4, #5, #6).",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.3.0/Apparition-0.3.0-iOS.ipa",
+          "size": 11150392,
+          "sha256": "1eb25207504e39d39708b48d9ebc49dc82c5264b4d3c75847e93863c772c8134",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.2.0",
           "buildVersion": "118",
           "date": "2026-10-18T09:52:46Z",
