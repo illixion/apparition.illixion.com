@@ -1,8 +1,93 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.3.2",
+  "latest": "0.3.3",
   "releases": [
+    {
+      "version": "0.3.3",
+      "build": 160,
+      "date": "2026-10-26T00:01:57Z",
+      "notes": "Command line ships inside the Mac app, with apparition link. Choose the signer at install time; data moves when an app changes team. Pairing fails fast, with pairing hand-off, and the device says why it can't be reached.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.3.3/SHA256SUMS",
+      "signature": "releases/0.3.3/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.3.3-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11522063,
+          "sha256": "7e8cfe551e54814ed47dcb723e17bca1a181b80d1da7cfb59b96ea5153c04a81",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-0.3.3-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.3-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11755885,
+          "sha256": "ccb4ffe4be7bf8805c7c44dc991de122352ec5a49dbe93af25630fa18c1b97aa",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-0.3.3-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.3.3-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 18296549,
+          "sha256": "5dc273d8a6c20add47a3a0754d9a8a0ff7e94056dcb15259f65301b46880852e",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-0.3.3-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.3-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 114678550,
+          "sha256": "e449e3fe4bb5e262200aaadd303019f927043a619034c3b55b5451f0be7b0ce0",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-Installer-0.3.3-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.3-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 117310675,
+          "sha256": "fdc9e7bf57d4ed14421ffba0f1146e9f9593646796e79d65e48b533c8890c45b",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-Installer-0.3.3-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.3-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 66956433,
+          "sha256": "f3ec662868b2d249378fe323224c98a961bc2cb122eb7eb140cb774b34043d17",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-Installer-0.3.3-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.3-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 42166299,
+          "sha256": "568fb34701a6d308566522358166d0d18851f4fb14b840ae4f1fbd7363be9f20",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-Installer-0.3.3-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.3.2",
       "build": 151,

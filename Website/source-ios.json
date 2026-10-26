@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.3.3",
+          "buildVersion": "160",
+          "date": "2026-10-26T00:01:57Z",
+          "localizedDescription": "Command line ships inside the Mac app, with apparition link. Choose the signer at install time; data moves when an app changes team. Pairing fails fast, with pairing hand-off, and the device says why it can't be reached.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.3.3/Apparition-0.3.3-iOS.ipa",
+          "size": 11522063,
+          "sha256": "7e8cfe551e54814ed47dcb723e17bca1a181b80d1da7cfb59b96ea5153c04a81",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.3.2",
           "buildVersion": "151",
           "date": "2026-10-24T21:09:49Z",
