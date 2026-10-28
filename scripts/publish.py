@@ -14,8 +14,7 @@ signing again, while a file's contents can't change without a new signature.
       the newest). Each file's URL is <url-base>/<name>, for each --url-base in order.
       File names say what they are, and must carry the version:
         Apparition-<version>-<visionOS|iOS|tvOS>.ipa
-        Apparition-Installer-<version>-<platform>.<zip|tar.gz>   (macos-universal,
-                                                                  windows-x86_64, linux-x86_64)
+        Apparition-Installer-<version>-<platform>.<zip|tar.gz|deb|AppImage>
       Upload the files to those URLs before or after; `verify --download` checks them.
   scripts/publish.py urls <version> <file name> <url>... [--append]
       Replace (or add to) a file's download URLs. No signing needed.
@@ -68,10 +67,13 @@ def classify(name, version):
     v = re.escape(version)
     m = re.fullmatch(rf"Apparition-{v}-([A-Za-z]+)\.ipa", name)
     if m and m.group(1) in APP_PLATFORMS:
-        return "app", APP_PLATFORMS[m.group(1)]
+        return "app", APP_PLATFORMS[m.group(1)], None
     m = re.fullmatch(rf"Apparition-Installer-{v}-([a-z0-9_-]+)\.(zip|tar\.gz)", name)
     if m and m.group(1) in PLATFORMS:
-        return "installer", m.group(1)
+        return "installer", m.group(1), None
+    m = re.fullmatch(rf"Apparition-Installer-{v}-(linux-(?:x86_64|arm64))\.(deb|AppImage)", name)
+    if m:
+        return "installer", m.group(1), m.group(2)
     return None
 
 
@@ -142,14 +144,17 @@ def cmd_add(args):
         kind = classify(path.name, version)
         if not kind:
             fail(f"{path.name} isn't named like an Apparition {version} release file (see --help)")
-        assets.append({
+        asset = {
             "name": path.name,
             "kind": kind[0],
             "platform": kind[1],
             "size": path.stat().st_size,
             "sha256": sha256(path),
             "urls": [f"{base.rstrip('/')}/{path.name}" for base in args.url_base],
-        })
+        }
+        if kind[2]:
+            asset["format"] = kind[2]
+        assets.append(asset)
         if kind[0] == "app":
             apps.append((kind[1], path))
     if not apps:

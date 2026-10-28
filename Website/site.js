@@ -104,7 +104,9 @@
       .filter(Boolean).join(", ");
 
     var a = link(href, "installer" + (mine ? " is-yours" : ""));
-    a.appendChild(el("span", "installer-name", "Apparition for " + osName));
+    var format = asset.format === "AppImage" ? "AppImage" : asset.format === "deb" ? ".deb" : "";
+    var label = "Apparition for " + osName + (format ? " · " + format : "");
+    a.appendChild(el("span", "installer-name", label));
     if (meta) a.appendChild(el("span", "installer-meta", meta));
     if (mine) a.appendChild(el("span", "installer-meta", "Matches this computer"));
     if (asset.name) a.setAttribute("download", "");
@@ -166,14 +168,18 @@
     var date = formatDate(release.date);
     if (date) head.appendChild(el("p", "release-date", "Released " + date));
     frag.appendChild(head);
-    if (typeof release.notes === "string" && release.notes.trim()) {
-      frag.appendChild(el("p", "release-notes", release.notes.trim()));
-    }
-
     // Installers: the visitor's OS first and highlighted, then the rest.
     var mine = visitorOS();
     var fromRelease = installers || release;
     installers = installersOf(fromRelease);
+    // Once Linux packages are published separately, show their direct links and omit the
+    // combined tarball from the desktop choices. The tarball remains available on GitHub.
+    var hasLinuxFormats = installers.some(function (a) { return a.platform.indexOf("linux-") === 0 && a.format; });
+    if (hasLinuxFormats) {
+      installers = installers.filter(function (a) {
+        return !(a.platform.indexOf("linux-") === 0 && !a.format);
+      });
+    }
     function rank(asset) {
       var os = splitPlatform(asset.platform).os;
       if (os === mine) return -1;
