@@ -57,6 +57,28 @@
           ]
         },
         {
+          "name": "Apparition-Installer-0.3.5-linux-arm64.AppImage",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "format": "AppImage",
+          "size": 90876424,
+          "sha256": "b2223329cfe87c80bf3c4e55ec2b988315d2e813bdfb953d0966e57c8eccb362",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.5/Apparition-Installer-0.3.5-linux-arm64.AppImage"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.5-linux-arm64.deb",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "format": "deb",
+          "size": 15823586,
+          "sha256": "fe802c544fbd265f00c91e93286703c435f552c1257a013a5855b3f5d5ae1df0",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.5/Apparition-Installer-0.3.5-linux-arm64.deb"
+          ]
+        },
+        {
           "name": "Apparition-Installer-0.3.5-linux-x86_64.tar.gz",
           "kind": "installer",
           "platform": "linux-x86_64",
@@ -64,6 +86,28 @@
           "sha256": "2207920e0d7e7e83fb58438dfb17b4b3800a8d3bf3e7d2e58b3d77781aa38a17",
           "urls": [
             "https://github.com/illixion/Apparition/releases/download/v0.3.5/Apparition-Installer-0.3.5-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.5-linux-x86_64.AppImage",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "format": "AppImage",
+          "size": 92772856,
+          "sha256": "15df492fde5bb4e7aff6f415f79eabad268547ac62ac4bc310807aff7449584f",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.5/Apparition-Installer-0.3.5-linux-x86_64.AppImage"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.3.5-linux-x86_64.deb",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "format": "deb",
+          "size": 15733264,
+          "sha256": "441b66fed3890eb7a6318ec61f9af4e8a924bc4bb21365421a5a8ad49931b372",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.3.5/Apparition-Installer-0.3.5-linux-x86_64.deb"
           ]
         },
         {
