@@ -454,6 +454,31 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
 }
 .installer.is-yours .installer-meta { color: inherit; opacity: .8; }
 .installer.is-yours:hover { background: color-mix(in srgb, var(--glow) 88%, var(--ink)); }
+.linux-downloads {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.linux-downloads > h4 { font-size: 1.2rem; }
+.linux-downloads > p { margin-top: .35rem; }
+.linux-arch {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+.linux-arch h5 {
+  margin-bottom: .75rem;
+  font-size: 1rem;
+  letter-spacing: .04em;
+}
+.linux-formats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: .65rem;
+}
+.linux-installer { min-height: 4.25rem; }
 
 .release-extra {
   margin-top: 2rem;

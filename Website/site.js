@@ -104,9 +104,7 @@
       .filter(Boolean).join(", ");
 
     var a = link(href, "installer" + (mine ? " is-yours" : ""));
-    var format = asset.format === "AppImage" ? "AppImage" : asset.format === "deb" ? ".deb" : "";
-    var label = "Apparition for " + osName + (format ? " · " + format : "");
-    a.appendChild(el("span", "installer-name", label));
+    a.appendChild(el("span", "installer-name", "Apparition for " + osName));
     if (meta) a.appendChild(el("span", "installer-meta", meta));
     if (mine) a.appendChild(el("span", "installer-meta", "Matches this computer"));
     if (asset.name) a.setAttribute("download", "");
@@ -172,12 +170,15 @@
     var mine = visitorOS();
     var fromRelease = installers || release;
     installers = installersOf(fromRelease);
-    // Once Linux packages are published separately, show their direct links and omit the
-    // combined tarball from the desktop choices. The tarball remains available on GitHub.
-    var hasLinuxFormats = installers.some(function (a) { return a.platform.indexOf("linux-") === 0 && a.format; });
+    var linuxPackages = installers.filter(function (a) {
+      return /^linux-(x86_64|arm64)$/.test(a.platform) && (a.format === "deb" || a.format === "AppImage");
+    });
+    var hasLinuxFormats = linuxPackages.length > 0;
+    // The Linux archive remains on GitHub for command-line use. Direct desktop downloads are
+    // grouped below by architecture so format and CPU requirements are explicit.
     if (hasLinuxFormats) {
       installers = installers.filter(function (a) {
-        return !(a.platform.indexOf("linux-") === 0 && !a.format);
+        return a.platform.indexOf("linux-") !== 0;
       });
     }
     function rank(asset) {
@@ -206,6 +207,40 @@
           " changes only the apps on your device, and the desktop app installs the latest of them."));
       }
       frag.appendChild(list);
+    }
+
+    if (hasLinuxFormats) {
+      var linux = el("section", "linux-downloads");
+      linux.setAttribute("aria-label", "Linux desktop downloads");
+      linux.appendChild(el("h4", null, "Linux desktop"));
+      linux.appendChild(el("p", "installer-meta", "Choose your CPU architecture, then download a .deb package or AppImage."));
+      [
+        { platform: "linux-x86_64", label: "x64" },
+        { platform: "linux-arm64", label: "ARM64" }
+      ].forEach(function (arch) {
+        var packages = linuxPackages.filter(function (asset) { return asset.platform === arch.platform; });
+        if (!packages.length) return;
+        var group = el("div", "linux-arch");
+        group.appendChild(el("h5", null, arch.label));
+        var options = el("div", "linux-formats");
+        ["deb", "AppImage"].forEach(function (format) {
+          var asset = packages.filter(function (item) { return item.format === format; })[0];
+          if (!asset) return;
+          var href = safeUrl(asset.urls && asset.urls[0]);
+          if (!href) return;
+          var label = format === "deb" ? "Download .deb" : "Download AppImage";
+          var a = link(href, "installer linux-installer");
+          a.appendChild(el("span", "installer-name", label));
+          var size = formatSize(asset.size);
+          if (size) a.appendChild(el("span", "installer-meta", size));
+          a.setAttribute("download", "");
+          track(a, "download", { kind: "desktop", platform: arch.platform, format: format });
+          options.appendChild(a);
+        });
+        group.appendChild(options);
+        linux.appendChild(group);
+      });
+      frag.appendChild(linux);
     }
 
     var extra = el("div", "release-extra");
