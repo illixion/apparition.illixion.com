@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.3.5",
+          "buildVersion": "186",
+          "date": "2026-10-28T18:08:25Z",
+          "localizedDescription": "* Connection: choose Companion or Local VPN, each with its own anisette server. iPhone and iPad can use LocalDevVPN without a computer.\n* LiveContainer: export your signing certificate as a .p12 (Settings > Share Signing) for LiveContainer's JIT-less mode. Tested with Delta on iOS 27; see Supported apps.\n* Stop: a new Stop button ends a refresh or install at any step.\n* Clearer failures: an unreachable anisette server or device says so and offers to retry or switch modes, and a refresh no longer retries a sign-in that already failed.\n* Security: rustls is updated for four advisories, and the trusted root CAs drop eMudhra's emSign roots. TLS is what protects the anisette library Apparition downloads.\n* Privacy: the Apple ID, team, certificate names, URLs and addresses are kept out of the logs.\n* Fixes: a just-installed app is no longer reported missing, Remove from Library works for apps deleted from the Home Screen, and the Share Signing share sheet stays open.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.3.5/Apparition-0.3.5-visionOS.ipa",
+          "size": 18064617,
+          "sha256": "b76aa153d4ee4417d357d0031c1690dd1f151ac40c7269993f363f2d8a4fbaa7",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.3.3",
           "buildVersion": "160",
           "date": "2026-10-26T00:01:57Z",
