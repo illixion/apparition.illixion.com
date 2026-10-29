@@ -1,8 +1,137 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.3.5",
+  "latest": "0.4.0",
   "releases": [
+    {
+      "version": "0.4.0",
+      "build": 200,
+      "date": "2026-10-29T14:09:16Z",
+      "notes": "## Fixes\n\n- **Sign-in \"403 Forbidden\" (#12).** Some of Apple's `gsd.apple.com` servers refuse sign-in from some networks, depending on your DNS resolver. Apparition now avoids a server that does this for an hour and retries on another one, found through your system DNS or DNS-over-HTTPS. A connection that fails or times out gets one retry on other servers. If every server refuses, the error says Apple turned the network away and what to try.\n- **Sign-in status is visible.** The status and its Try again button now appear under the form, and an error scrolls into view, instead of sitting below the fold.\n- **Stale Library errors.** Cards now say when the last failure happened (\"Failed 2 days ago\"), and failures that blame an anisette address are dropped once that address changes.\n\n## New\n\n- **Anisette libraries from a file.** When Apple's download server can't be reached, the desktop app offers Try again and, under Advanced, using Apple Music's libraries from a file. `apparition anisette import` does the same from the command line. Files are checked against the tested version, and a mismatch can be overridden, which is flagged as an unsupported setup. The troubleshooting steps are in the README.\n- **Setup badge.** The desktop header always shows where sign-in anisette comes from and what the companion offers.\n- **App ID management and reuse.** The desktop app lists your App IDs with quota, expiry, search and deletion. The desktop and native iPhone, iPad, Vision Pro and Apple TV installers share extension selection and App ID reuse. Assignments are saved per team, device and source app, so one registered App ID can serve different apps on different devices.\n- **Linux.** Flatpak bundles and direct package downloads.\n\nWindows and the Linux GUI were tested only partly (unit tests and builds). The new sign-in and error handling is covered by unit tests on macOS and Windows.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.4.0/SHA256SUMS",
+      "signature": "releases/0.4.0/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.4.0-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11444537,
+          "sha256": "308a5814825a03d680ac113c5f78cac2ef568e3f6b7b681761858567ef725ed8",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-0.4.0-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.4.0-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11632352,
+          "sha256": "9099ec21ba0e92022678642e985ed7fbd636c13824a8ab85d3bc2064c8f1bf93",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-0.4.0-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.4.0-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 18220205,
+          "sha256": "39398298948ac44b4d3a5eb749ae63b550e7f22e1eff5be01e0f26b29860e8c5",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-0.4.0-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-linux-arm64.AppImage",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 91056648,
+          "sha256": "357056077b1b7d7c923634af8f672cf5a017622838a15aa6ec584ca44895eb8b",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-linux-arm64.AppImage"
+          ],
+          "format": "AppImage"
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-linux-arm64.deb",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 16026452,
+          "sha256": "130abae65d748874ff00b73bb8d5cca5528f97cfe8abd0b8287031c965dc8191",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-linux-arm64.deb"
+          ],
+          "format": "deb"
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 115223385,
+          "sha256": "c73e5f652abc2972cfbbeb10c28bf777b575f5f2eb52598673ab1714b1f2c51c",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-linux-x86_64.AppImage",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 92944888,
+          "sha256": "93f95ef3ab07454869b202b9a97d332790122e3e6593860c1ff008bc2b716ec9",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-linux-x86_64.AppImage"
+          ],
+          "format": "AppImage"
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-linux-x86_64.deb",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 15931942,
+          "sha256": "814020c84c4f3ef4bd9b73c46c856e967ccfdabcf8710f5c2449392f536ef089",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-linux-x86_64.deb"
+          ],
+          "format": "deb"
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 117739867,
+          "sha256": "7ff55da89ec3486f84a23d9779ec9fb2d4700e41a9c9e9a9df3cc5807a92a35a",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 67708330,
+          "sha256": "d252ef546cdfae570450b960f6c93c6c7f7a24c809f66ffe70882fa0c3bd706f",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.0-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 42120144,
+          "sha256": "fa5e10e997b29e4f104015b11651418142662a1a0773015eb2337e36b6aec5d6",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.0/Apparition-Installer-0.4.0-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.3.5",
       "build": 186,
