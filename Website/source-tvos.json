@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.4.1",
+          "buildVersion": "207",
+          "date": "2026-10-29T18:24:14Z",
+          "localizedDescription": "## Fixes\n\n- **JIT for apps inside LiveContainer (#15).** With LiveContainer's JIT enabler set to StikDebug, Launch with JIT now works. A JIT link that names no process now launches the app again under the debugger, as StikDebug does, so LiveContainer starts the app you chose with JIT. Before, Apparition attached to the copy of LiveContainer waiting for it, and the app never got JIT.\n- **Stop always ends a JIT session,** including while it is still starting. Before, it did nothing until the debugger had attached.\n\n## New\n\n- **StikDebug JIT scripts.** A script sent with the JIT request (as LiveContainer sends one you added to an app) now runs as the app's debugger. Apparition asks you first every time, because a script can read and change everything in the app.\n- **JITProbe**, a minimal test app in the repository: it asks for JIT memory, writes code into it and runs it, and says \"JIT works\".\n\nTested on an iPhone 15 Pro Max with iOS 27.0.1 and LiveContainer Nightly, with and without StikDebug's `universal.js`.\n\n## Dependency changes\n\n- **zip 9.1.** Apparition now reads IPAs and `.deb` packages with zip 9.1, which fixes a parsing difference between an archive's two headers (GHSA-m665-v7pm-7grj). That only matters to software that checks an archive with one of the library's readers and extracts it with the other. Apparition uses a single reader for both, so it wasn't affected. Entries whose names can't be decoded are now skipped rather than guessed at.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.4.1/Apparition-0.4.1-tvOS.ipa",
+          "size": 11739585,
+          "sha256": "d4e7e33a670aab5e9b9dc182e1b721e5ed020ae678e29263b65171b48931561d",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.4.0",
           "buildVersion": "200",
           "date": "2026-10-29T14:09:16Z",
