@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.4.3",
+          "buildVersion": "234",
+          "date": "2026-10-30T17:32:38Z",
+          "localizedDescription": "**Sign-in works with the built-in anisette again.**\nFrom 29 October, Apple's edge firewall rejected the legacy `Content-Type` that sideloaders send on every GrandSlam request. `gsd.apple.com` (provisioning) blocked `text/x-xml-plist`, and `gsa.apple.com` (sign-in) blocked `application/x-xml-plist`. It looked like Apple refusing Android anisette. Apparition now sends `text/xml`, which both accept, so a Mac's anisette, a third-party server or a macOS VM is no longer needed. They all still work if you prefer them. [Write-up](https://blog.illixion.com/2026/10/sideloading-error-80046/#update-30-october-it-was-the-content-type).\n\n- **Hardware-identity fields in sign-in:** the request now carries `X-Mme-Legacy-Device-Id` and `X-Apple-I-MD-LU`, like Apple's own Windows client does.\n- **Retry on another Apple server:** when one Apple server refuses a request or can't be reached, Apparition retries on another. Error messages are plainer and no longer suggest changing DNS.\n- **Library matches appstore projects:** with the Mac build service connected, installed debuggable apps are grouped under their project. Cards show installed and retained builds, and offer an install review without rebuilding. They can also prepare newer builds automatically (you still approve installation), read symbolicated crash logs and trace files, and label iPhone and iPad compatibility-mode apps.\n- **README and the macOS VM guide** no longer say a Mac's anisette is required.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.4.3/Apparition-0.4.3-iOS.ipa",
+          "size": 11794316,
+          "sha256": "c127e42344a938cf839c7e87558ec80fe6cc2168316d0f81d297df5d8702769b",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.4.2",
           "buildVersion": "226",
           "date": "2026-10-30T01:09:46Z",
