@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.4.4",
+          "buildVersion": "238",
+          "date": "2026-10-30T21:54:23Z",
+          "localizedDescription": "Apparition 0.4.4 (hotfix) fixes sign-in not working correctly in the Apple apps (visionOS, iOS and tvOS). The desktop installers are unchanged from 0.4.3, so this release only updates the apps.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.4.4/Apparition-0.4.4-visionOS.ipa",
+          "size": 18576762,
+          "sha256": "7d953172eb94bcbd2e1c623b57f962f39b6af62b39a8e0ca6df0da5fbc91cc67",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.4.3",
           "buildVersion": "234",
           "date": "2026-10-30T17:32:38Z",
