@@ -1,0 +1,4 @@
+# The macOS-VM anisette setup script (docs/ANISETTE_VM.md): run in recoveryOS as
+#   bash -c "$(curl -fsSL https://apparition.illixion.com/avm.sh)"
+# curl follows the 302 to the script on main, so a fix there is live without a site publish.
+/avm.sh  https://raw.githubusercontent.com/illixion/Apparition/main/selfhost/macos-vm/setup.sh  302
