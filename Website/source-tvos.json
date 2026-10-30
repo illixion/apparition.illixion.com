@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.4.2",
+          "buildVersion": "226",
+          "date": "2026-10-30T01:09:46Z",
+          "localizedDescription": "**Sign-in works again.** Since October, Apple refuses the anisette Apparition's built-in provider makes on iPhone, iPad, Apple TV, Vision Pro and Linux, and its GrandSlam servers were returning intermittent 503s on top of that.\n\n- **Retries transient GrandSlam 503s** at the start of sign-in, at the password proof, and when asking for the Xcode token, so one bad answer no longer fails the whole sign-in.\n- **Anisette from a macOS VM.** A VM's sign-in is accepted when the server forwards the host's attestation headers and claims the VM's real identity. `apparition anisette serve` does this inside a logged-in macOS session.\n- **[Guide](https://github.com/illixion/Apparition/blob/main/docs/ANISETTE_VM.md) and one-line setup script** for turning a UTM macOS VM into that server: run `bash -c \"$(curl -fsSL https://apparition.illixion.com/avm.sh)\"` in recoveryOS.\n- **README:** the sign-in requirement is now a prominent alert. It lays out two paths: a third-party anisette server (quick, but could stop working) or your own macOS VM (reliable, about 20 minutes to set up).\n- **Developer tab (new, inert until you connect a Mac build service):** Apparition desktop and the device can connect to a Mac running the build service to browse builds, register Xcode projects and install retained builds. The `apparition xcode` command registers existing Xcode products.\n- **Vision Pro live-patching validation** work for development builds.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-0.4.2-tvOS.ipa",
+          "size": 11881001,
+          "sha256": "f882a0aa0c4a88dd50419a610bcf68b7f2b43a6c5d1ab7e3bd49d3e2e31b6512",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.4.1",
           "buildVersion": "207",
           "date": "2026-10-29T18:24:14Z",

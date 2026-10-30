@@ -1,8 +1,137 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.4.1",
+  "latest": "0.4.2",
   "releases": [
+    {
+      "version": "0.4.2",
+      "build": 226,
+      "date": "2026-10-30T01:09:46Z",
+      "notes": "**Sign-in works again.** Since October, Apple refuses the anisette Apparition's built-in provider makes on iPhone, iPad, Apple TV, Vision Pro and Linux, and its GrandSlam servers were returning intermittent 503s on top of that.\n\n- **Retries transient GrandSlam 503s** at the start of sign-in, at the password proof, and when asking for the Xcode token, so one bad answer no longer fails the whole sign-in.\n- **Anisette from a macOS VM.** A VM's sign-in is accepted when the server forwards the host's attestation headers and claims the VM's real identity. `apparition anisette serve` does this inside a logged-in macOS session.\n- **[Guide](https://github.com/illixion/Apparition/blob/main/docs/ANISETTE_VM.md) and one-line setup script** for turning a UTM macOS VM into that server: run `bash -c \"$(curl -fsSL https://apparition.illixion.com/avm.sh)\"` in recoveryOS.\n- **README:** the sign-in requirement is now a prominent alert. It lays out two paths: a third-party anisette server (quick, but could stop working) or your own macOS VM (reliable, about 20 minutes to set up).\n- **Developer tab (new, inert until you connect a Mac build service):** Apparition desktop and the device can connect to a Mac running the build service to browse builds, register Xcode projects and install retained builds. The `apparition xcode` command registers existing Xcode products.\n- **Vision Pro live-patching validation** work for development builds.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.4.2/SHA256SUMS",
+      "signature": "releases/0.4.2/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.4.2-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11694251,
+          "sha256": "1ddbc0fb7b560f414dfcceb8276beb3e0123e69f43f306e14f648824092014cc",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-0.4.2-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.4.2-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11881001,
+          "sha256": "f882a0aa0c4a88dd50419a610bcf68b7f2b43a6c5d1ab7e3bd49d3e2e31b6512",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-0.4.2-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.4.2-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 18476211,
+          "sha256": "da1ba8c13324949af3011c87494e0abafebd3c76d54c9ed86b0ed51a89795da0",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-0.4.2-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-linux-arm64.AppImage",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 91220488,
+          "sha256": "c35107b95c4c1ee0f45744ac2a06d5d176bcffd8c5cd87a2a2f806dc83aa2866",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-linux-arm64.AppImage"
+          ],
+          "format": "AppImage"
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-linux-arm64.deb",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 16187724,
+          "sha256": "0b5c7375ca72a90577609c8d7edf7f0964331b187ed0815fec2a4bbd80de1672",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-linux-arm64.deb"
+          ],
+          "format": "deb"
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 115643689,
+          "sha256": "35b19cd2ce22ff7a3bad9f5a4643b96d675cf3014b3901aadb61cdcb9c08be03",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-linux-x86_64.AppImage",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 93112824,
+          "sha256": "0890de40905423875741d0ff9e8855b9875ffac0c472767835a58a41672fe56b",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-linux-x86_64.AppImage"
+          ],
+          "format": "AppImage"
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-linux-x86_64.deb",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 16101684,
+          "sha256": "24d4363b318d88de77060c10bbcc025e19d61f7bc6a82f6d46c2d623c9c67856",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-linux-x86_64.deb"
+          ],
+          "format": "deb"
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 118189351,
+          "sha256": "0eebee13cd8e8d01992128e398bbf36cd784b54ce3fcbc62f013312c6d952f1e",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 68488582,
+          "sha256": "3b4fcac69d059aed9747698a7662b20c86da972b671f69066d3b6e43fc610359",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.2-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 42572038,
+          "sha256": "5f296e85bda7f433e4d29c653d4bba4d0bdf35e0e9db321122a2a8d2974592f2",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.2/Apparition-Installer-0.4.2-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.4.1",
       "build": 207,
