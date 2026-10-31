@@ -1,0 +1,6 @@
+#!/bin/sh
+# Keeps the asset hashes in Website/index.html current. Enable with:
+#   git config core.hooksPath .githooks
+root=$(git rev-parse --show-toplevel) || exit 1
+python3 "$root/scripts/stamp-assets.py" || exit 1
+git add "$root/Website/index.html"

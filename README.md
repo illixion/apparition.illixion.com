@@ -9,6 +9,13 @@ kind (`app` or `installer`), platform, size, SHA-256 and any number of download 
 Installer and the app read it to find the latest release. `Website/source-<platform>.json` are
 AltStore/SideStore sources generated from it, one per app platform.
 
+## Editing the page's CSS or JavaScript
+
+Cloudflare can serve an old `site.js` or `site.css` for hours whatever `_headers` says, so
+`index.html` links them as `/site.js?v=<content hash>`. Run `scripts/stamp-assets.py` after
+editing either file (`--check` verifies). To have commits do it, once per clone:
+`git config core.hooksPath .githooks`.
+
 ## Why the files can be anywhere
 
 Nothing trusts a URL. Each release has `Website/releases/<version>/SHA256SUMS`, signed with
