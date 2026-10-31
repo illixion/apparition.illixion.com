@@ -1,8 +1,137 @@
 {
   "format": "apparition-releases",
   "version": 1,
-  "latest": "0.4.4",
+  "latest": "0.4.5",
   "releases": [
+    {
+      "version": "0.4.5",
+      "build": 247,
+      "date": "2026-10-31T00:55:22Z",
+      "notes": "- Desktop installers (macOS, Windows, Linux) can now update themselves. Updates are signed, checked only after you consent, and the tray has a new updates section. Checks now survive sleep and policy changes.\n- Removing a library and approving JIT are more reliable.\n- Each platform's app is bound to its signed IPA filename.\n- A double-click no longer fires a control twice.\n- Partial releases can now be built and selected by platform.",
+      "minOS": {
+        "ios": "26.0",
+        "tvos": "26.0",
+        "visionos": "26.0"
+      },
+      "sums": "releases/0.4.5/SHA256SUMS",
+      "signature": "releases/0.4.5/SHA256SUMS.sig",
+      "assets": [
+        {
+          "name": "Apparition-0.4.5-iOS.ipa",
+          "kind": "app",
+          "platform": "ios",
+          "size": 11801788,
+          "sha256": "1625ded5149095122951ba5668990d4b927bcfb6bf6dc1e48ff1d2e3e418a174",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-0.4.5-iOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.4.5-tvOS.ipa",
+          "kind": "app",
+          "platform": "tvos",
+          "size": 11989947,
+          "sha256": "5fda669656db6ab781a40862240b3947462e51511b696d7283307cbd2badf82c",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-0.4.5-tvOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-0.4.5-visionOS.ipa",
+          "kind": "app",
+          "platform": "visionos",
+          "size": 18584715,
+          "sha256": "1ff2939949ddf56c89c978f30f56074b94dc29a18d3ae3403c2ff6296a729932",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-0.4.5-visionOS.ipa"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-linux-arm64.AppImage",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 91253256,
+          "sha256": "323d12c3057c6439cf1d72fb19b1089d2e35c6162faea1adffcd775ccaffb5cf",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-linux-arm64.AppImage"
+          ],
+          "format": "AppImage"
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-linux-arm64.deb",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 16261718,
+          "sha256": "1e07487ec1f4bfe3088f3f4f0bccec0ad87bae36358a9ee29b6741f57759908b",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-linux-arm64.deb"
+          ],
+          "format": "deb"
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-linux-arm64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-arm64",
+          "size": 115755008,
+          "sha256": "cece193ad4a43d2642324018d16e3196f61b798fba1e15b7121e695b9d5307f3",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-linux-arm64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-linux-x86_64.AppImage",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 93186552,
+          "sha256": "2ad9fcc4223d883feb2bc878b705c5871e98f17e667f21bd5d6f5937d39d1520",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-linux-x86_64.AppImage"
+          ],
+          "format": "AppImage"
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-linux-x86_64.deb",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 16192522,
+          "sha256": "b317b52580195a55cfc088b7c9af65e9352cd1e4870f04d5d8a8b87ad2886901",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-linux-x86_64.deb"
+          ],
+          "format": "deb"
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-linux-x86_64.tar.gz",
+          "kind": "installer",
+          "platform": "linux-x86_64",
+          "size": 118354157,
+          "sha256": "75399fb00e0d30320e7c471c21acae31b1362fe566bb0ace88fbdb402cbf31da",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-linux-x86_64.tar.gz"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-macos-universal.zip",
+          "kind": "installer",
+          "platform": "macos-universal",
+          "size": 68668143,
+          "sha256": "99fc534810cb1f27c5f3ff831fd8e0073a54056991c015090d86a42f5faa7961",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-macos-universal.zip"
+          ]
+        },
+        {
+          "name": "Apparition-Installer-0.4.5-windows-x86_64.zip",
+          "kind": "installer",
+          "platform": "windows-x86_64",
+          "size": 39325162,
+          "sha256": "3c2ea977c69e1abdd3d158bf0bfcae9b55a871c5669454f15b50f7bc9e72de62",
+          "urls": [
+            "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-Installer-0.4.5-windows-x86_64.zip"
+          ]
+        }
+      ]
+    },
     {
       "version": "0.4.4",
       "build": 238,

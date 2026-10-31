@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "0.4.5",
+          "buildVersion": "247",
+          "date": "2026-10-31T00:55:22Z",
+          "localizedDescription": "- Desktop installers (macOS, Windows, Linux) can now update themselves. Updates are signed, checked only after you consent, and the tray has a new updates section. Checks now survive sleep and policy changes.\n- Removing a library and approving JIT are more reliable.\n- Each platform's app is bound to its signed IPA filename.\n- A double-click no longer fires a control twice.\n- Partial releases can now be built and selected by platform.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v0.4.5/Apparition-0.4.5-visionOS.ipa",
+          "size": 18584715,
+          "sha256": "1ff2939949ddf56c89c978f30f56074b94dc29a18d3ae3403c2ff6296a729932",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "0.4.4",
           "buildVersion": "238",
           "date": "2026-10-30T21:54:23Z",
