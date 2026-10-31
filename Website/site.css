@@ -417,7 +417,30 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
   margin-top: .75rem;
   max-width: var(--measure);
   color: var(--muted);
-  white-space: pre-line;
+}
+.release-notes > * + * { margin-top: .75rem; }
+.release-notes h4, .release-notes h5, .release-notes h6 {
+  color: var(--ink);
+  font-family: var(--display);
+  line-height: 1.25;
+}
+.release-notes h4 { font-size: 1.25rem; }
+.release-notes h5 { font-size: 1.1rem; }
+.release-notes h6 { font-size: 1rem; }
+.release-notes ul, .release-notes ol { padding-left: 1.5rem; }
+.release-notes li + li { margin-top: .25rem; }
+.release-notes pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--bg-deep);
+}
+.release-notes pre code { font-size: .85rem; }
+.release-notes blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--glow);
 }
 
 /* Changelog: one entry per release, set off by a rule. */

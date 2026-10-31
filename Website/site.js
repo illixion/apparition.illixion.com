@@ -42,6 +42,112 @@
     return a;
   }
 
+  function renderInlineMarkdown(text, parent) {
+    var pattern = /(`+)(.+?)\1|\[([^\]]+)\]\(([^)\s]+)\)|(\*\*|__)(.+?)\5|(\*|_)(.+?)\7|~~(.+?)~~/g;
+    var last = 0;
+    var match;
+    while ((match = pattern.exec(text))) {
+      if (match.index > last) parent.appendChild(document.createTextNode(text.slice(last, match.index)));
+      var node;
+      if (match[1]) {
+        node = el("code", null, match[2]);
+      } else if (match[3]) {
+        var href = safeUrl(match[4], true);
+        node = href ? link(href, null, match[3]) : document.createTextNode(match[3]);
+      } else if (match[5]) {
+        node = el("strong", null, match[6]);
+      } else if (match[7]) {
+        node = el("em", null, match[8]);
+      } else {
+        node = el("del", null, match[9]);
+      }
+      parent.appendChild(node);
+      last = pattern.lastIndex;
+    }
+    if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  function renderMarkdown(text, parent) {
+    var lines = text.replace(/\r\n?/g, "\n").split("\n");
+    var i = 0;
+    while (i < lines.length) {
+      var line = lines[i];
+      if (!line.trim()) {
+        i++;
+        continue;
+      }
+
+      var fence = /^\s*```/.exec(line);
+      if (fence) {
+        var code = [];
+        i++;
+        while (i < lines.length && !/^\s*```/.test(lines[i])) code.push(lines[i++]);
+        if (i < lines.length) i++;
+        var pre = el("pre");
+        pre.appendChild(el("code", null, code.join("\n")));
+        parent.appendChild(pre);
+        continue;
+      }
+
+      var heading = /^(#{1,6})\s+(.+?)\s*#*\s*$/.exec(line);
+      if (heading) {
+        var headingLevel = Math.min(6, heading[1].length + 3);
+        var title = el("h" + headingLevel);
+        renderInlineMarkdown(heading[2], title);
+        parent.appendChild(title);
+        i++;
+        continue;
+      }
+
+      if (/^\s*(?:[-*_]\s*){3,}$/.test(line)) {
+        parent.appendChild(el("hr"));
+        i++;
+        continue;
+      }
+
+      var listItem = /^\s*(?:[-+*]|\d+[.)])\s+(.+)$/.exec(line);
+      if (listItem) {
+        var ordered = /^\s*\d/.test(line);
+        var list = el(ordered ? "ol" : "ul");
+        while (i < lines.length) {
+          var item = /^\s*(?:([-+*])|(\d+[.)]))\s+(.+)$/.exec(lines[i]);
+          if (!item || !!item[2] !== ordered) break;
+          var li = el("li");
+          renderInlineMarkdown(item[3], li);
+          list.appendChild(li);
+          i++;
+        }
+        parent.appendChild(list);
+        continue;
+      }
+
+      if (/^\s*>\s?/.test(line)) {
+        var quote = el("blockquote");
+        while (i < lines.length && /^\s*>\s?/.test(lines[i])) {
+          var paragraph = el("p");
+          renderInlineMarkdown(lines[i].replace(/^\s*>\s?/, ""), paragraph);
+          quote.appendChild(paragraph);
+          i++;
+        }
+        parent.appendChild(quote);
+        continue;
+      }
+
+      var paragraphLines = [];
+      while (i < lines.length && lines[i].trim() &&
+        !/^\s*```/.test(lines[i]) &&
+        !/^#{1,6}\s+/.test(lines[i]) &&
+        !/^\s*(?:[-*_]\s*){3,}$/.test(lines[i]) &&
+        !/^\s*(?:[-+*]|\d+[.)])\s+/.test(lines[i]) &&
+        !/^\s*>\s?/.test(lines[i])) {
+        paragraphLines.push(lines[i++].trim());
+      }
+      var p = el("p");
+      renderInlineMarkdown(paragraphLines.join(" "), p);
+      parent.appendChild(p);
+    }
+  }
+
   // Counts a click as a Umami event (self-hosted, stats.illixion.com). A plain listener rather
   // than data-umami-event, whose handler holds the download until the beacon returns.
   function track(node, name, data) {
@@ -319,7 +425,9 @@
       if (date) head.appendChild(el("p", "release-date", date));
       entry.appendChild(head);
       if (typeof release.notes === "string" && release.notes.trim()) {
-        entry.appendChild(el("p", "release-notes", release.notes.trim()));
+        var notes = el("div", "release-notes");
+        renderMarkdown(release.notes.trim(), notes);
+        entry.appendChild(notes);
       }
       frag.appendChild(entry);
     });
