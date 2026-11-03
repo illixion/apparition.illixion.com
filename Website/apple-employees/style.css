@@ -1,0 +1,95 @@
+/* Apple employees page: the Apparition palette, without the homepage hero. */
+@font-face {
+  font-family: "Fraunces Soft";
+  src: url("/fonts/Fraunces-Soft.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #EEEDF7;
+  --surface: #FFFFFF;
+  --ink: #1F1A3D;
+  --muted: #59537E;
+  --line: #CFCBE6;
+  --glow: #0E7A68;
+  --lilac: #5B47C9;
+  --display: "Fraunces Soft", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-l: 28px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15122B;
+    --surface: #1F1A3C;
+    --ink: #ECE8FF;
+    --muted: #A9A2CF;
+    --line: #322B5C;
+    --glow: #8EF0D0;
+    --lilac: #B9A6FF;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--text);
+  padding: clamp(16px, 4vw, 48px);
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 48px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+
+h2 {
+  font-size: 1.4rem;
+  margin: 2.25rem 0 .75rem;
+  color: var(--lilac);
+}
+
+p, li { margin: 0 0 .9rem; }
+
+ul { padding-left: 1.25rem; }
+li { margin-bottom: .5rem; }
+
+strong { font-weight: 650; }
+
+a { color: var(--glow); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--lilac);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Sources sit below a rule and read quieter than the argument. */
+main > h2:last-of-type { border-top: 1px solid var(--line); padding-top: 1.25rem; }
+main > h2:last-of-type ~ ul { font-size: .9rem; color: var(--muted); }
+main > h2:last-of-type ~ ul a { overflow-wrap: anywhere; }
