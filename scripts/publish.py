@@ -15,6 +15,8 @@ signing again, while a file's contents can't change without a new signature.
       File names say what they are, and must carry the version:
         Apparition-<version>-<visionOS|iOS|tvOS>.ipa
         Apparition-Installer-<version>-<platform>.<zip|tar.gz|deb|AppImage>
+        Apparition-VMGuest-<version>-macos-arm64.zip (the anisette VM's programs, which the
+          desktop app hands the VM; not a download for people, so the site doesn't list it)
       Upload the files to those URLs before or after; `verify --download` checks them.
   scripts/publish.py urls <version> <file name> <url>... [--append]
       Replace (or add to) a file's download URLs. No signing needed.
@@ -74,6 +76,8 @@ def classify(name, version):
     m = re.fullmatch(rf"Apparition-Installer-{v}-(linux-(?:x86_64|arm64))\.(deb|AppImage)", name)
     if m:
         return "installer", m.group(1), m.group(2)
+    if name == f"Apparition-VMGuest-{version}-macos-arm64.zip":
+        return "vm-guest", "macos-arm64", None
     return None
 
 
