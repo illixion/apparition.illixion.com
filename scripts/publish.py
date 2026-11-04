@@ -18,6 +18,9 @@ signing again, while a file's contents can't change without a new signature.
         Apparition-VMGuest-<version>-macos-arm64.zip (the anisette VM's programs, which the
           desktop app hands the VM; not a download for people, so the site doesn't list it)
       Upload the files to those URLs before or after; `verify --download` checks them.
+      Nothing is signed until the Apparition repo's scripts/audit-release.sh passes on <dir>: it
+      checks GitHub's attestations, audits the dependencies of the commit they name, and rebuilds
+      the macOS files from that commit to get CI's bytes. Its report is listed with the release.
   scripts/publish.py urls <version> <file name> <url>... [--append]
       Replace (or add to) a file's download URLs. No signing needed.
   scripts/publish.py verify [<version>] [--download]
@@ -48,6 +51,7 @@ WEBSITE = ROOT / "Website"
 INDEX = WEBSITE / "release.json"
 SIGNERS = ROOT / "release-signers"
 APP_SIGNERS = ROOT.parent / "Apparition" / "release-signers"
+AUDIT = ROOT.parent / "Apparition" / "scripts" / "audit-release.sh"
 NAMESPACE = "apparition-release"
 IDENTITY = "releases@apparition.illixion.com"
 BUNDLE_ID = "com.illixion.apparition"
@@ -182,6 +186,15 @@ def cmd_add(args):
 
     stage = Path(tempfile.mkdtemp(prefix="apparition-publish-"))
     try:
+        # The audit, before anything is signed: a signature vouches for what it checked.
+        if not AUDIT.exists():
+            fail(f"no {AUDIT}; the audit has to pass before a release is signed")
+        print(f"==> audit ({AUDIT.relative_to(ROOT.parent)})")
+        report = stage / "audit.json"
+        if subprocess.run([str(AUDIT), version, str(folder.resolve()), "--report", str(report)]).returncode != 0:
+            fail("the audit didn't pass, so nothing was signed")
+        audit = json.loads(report.read_text())
+        report.unlink()
         sums = stage / "SHA256SUMS"
         sums.write_text("".join(f"{a['sha256']}  {a['name']}\n" for a in assets))
         print("==> manifest")
@@ -215,6 +228,7 @@ def cmd_add(args):
         "sums": f"releases/{version}/SHA256SUMS",
         "signature": f"releases/{version}/SHA256SUMS.sig",
         "assets": assets,
+        "audit": audit,
     }
     index["releases"] = [r for r in index["releases"] if r["version"] != version] + [release]
     if newer:
