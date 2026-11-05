@@ -306,13 +306,19 @@
     });
     if (list.childNodes.length) {
       frag.appendChild(el("p", "release-lead",
-        "The desktop app puts Apparition on your device, then can stay in the menu bar or tray as its companion."));
+        mine === "macos" || !mine
+          ? "Apparition for Mac puts Apparition on your device and signs you in, then stays in the menu bar as its companion."
+          : "The desktop app puts Apparition on your device, then stays in the tray as its companion."));
       if (fromRelease.version !== release.version) {
         frag.appendChild(el("p", "release-lead",
           "These are version " + fromRelease.version + ", the newest desktop app. Version " + release.version +
           " changes only the apps on your device, and the desktop app installs the latest of them."));
       }
       frag.appendChild(list);
+      if (mine === "windows" || mine === "linux") {
+        frag.appendChild(el("p", "mac-note",
+          "Signing in with a free Apple ID needs a Mac's anisette: pair this computer with a Mac running Apparition, or see what works without a Mac above."));
+      }
     }
 
     if (hasLinuxFormats) {

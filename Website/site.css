@@ -593,8 +593,13 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
 }
 .section-note {
   margin-top: .75rem;
+  max-width: 44rem;
   color: var(--muted);
 }
+.section-note + .feature-list,
+.section-note + .qa { margin-top: 2rem; }
+.section-note strong { color: var(--ink); }
+.mac-note { margin-top: 1.25rem; font-size: .95rem; color: var(--muted); max-width: 44rem; }
 .release-lead { margin-top: 1.5rem; color: var(--ink); }
 .release-lead + .installers { margin-top: 1rem; }
 
