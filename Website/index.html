@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apparition: sideloading, run from your Mac</title>
-<meta name="description" content="Apparition is an open-source sideloader for Apple Vision Pro, iPhone, iPad and Apple TV that works best with a Mac you own. Your Mac signs you in, keeps apps refreshed and launched with JIT from anywhere, and builds your own Xcode projects.">
+<title>Apparition: develop, debug and sideload</title>
+<meta name="description" content="Apparition is an open-source developer tool for Apple Vision Pro, iPhone, iPad and Apple TV. Build your Xcode projects onto the device, patch Swift into the running app and debug it live with DebugTrace, then sideload apps, launch them with JIT and refresh them every week over Tailscale.">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#15122B" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#EEEDF7" media="(prefers-color-scheme: light)">
 <meta property="og:title" content="Apparition">
-<meta property="og:description" content="Sideloading for Vision Pro, iPhone, iPad and Apple TV, run from your Mac: signing, refreshing, JIT and your own Xcode builds.">
+<meta property="og:description" content="Develop, debug and sideload on Vision Pro, iPhone, iPad and Apple TV: live patching, DebugTrace, JIT and weekly refreshes over Tailscale.">
 <meta property="og:image" content="https://apparition.illixion.com/apple-touch-icon.png">
 <meta property="og:url" content="https://apparition.illixion.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Fraunces-Soft.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=bf6ff2e71d">
-<script src="/site.js?v=f6563065cd" defer></script>
+<link rel="stylesheet" href="/site.css?v=ee6b854a32">
+<script src="/site.js?v=d0c863fe8c" defer></script>
 <script src="https://stats.illixion.com/t.js" defer data-website-id="c73f2046-1853-4b76-8dfb-e9447638be04" data-domains="apparition.illixion.com"></script>
 <script src="/engaged.js" defer></script>
 </head>
@@ -30,10 +30,10 @@
     <span>Apparition</span>
   </a>
   <nav aria-label="Sections">
-    <a href="#mac">Why a Mac</a>
-    <a href="#how">How it works</a>
     <a href="#develop">Develop</a>
-    <a href="#features">Features</a>
+    <a href="#sideload">Sideload</a>
+    <a href="#anywhere">Anywhere</a>
+    <a href="#mac">Your Mac</a>
     <a href="#faq">Questions</a>
     <a href="https://github.com/illixion/Apparition/blob/main/docs/SUPPORTED_APPS.md">Tested apps</a>
     <a href="#changelog">Changelog</a>
@@ -45,14 +45,14 @@
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <h1 id="hero-title">Sideloading, run from your Mac.</h1>
-      <p class="lede">Apparition keeps the apps on your Vision Pro, iPhone, iPad and Apple TV signed, refreshed and running, and launches them with JIT, with no cable and no weekly trip back to your desk. Your Mac does the part nothing else can: it signs you in to Apple and stays in the menu bar as the device's companion, at home or over Tailscale. It builds your own Xcode projects too.</p>
+      <h1 id="hero-title">Develop, debug and sideload.</h1>
+      <p class="lede">Apparition is a developer tool for Apple Vision Pro, iPhone, iPad and Apple TV. It builds your Xcode projects onto the device, patches Swift into the running app without a rebuild, and lets you or an agent debug it live through DebugTrace. It also sideloads other people's apps, launches them with JIT, and re-signs them every week over Tailscale, with no cable and no computer on the same network.</p>
       <p class="platforms">A Mac app, for Apple Vision Pro, iPhone, iPad and Apple TV.</p>
       <div class="hero-actions">
         <a class="button primary" href="#download">Download for Mac</a>
-        <a class="button quiet" href="#mac">Why a Mac?</a>
+        <a class="button quiet" href="#develop">How development works</a>
       </div>
-      <p class="fineprint">Free and open source under the MIT license. Windows and Linux work too, paired with a Mac.</p>
+      <p class="fineprint">Free and open source under the MIT license. Windows and Linux work too.</p>
     </div>
 
     <figure class="apparition" aria-hidden="true">
@@ -88,73 +88,82 @@
     </figure>
   </section>
 
-  <section id="mac" class="mac" aria-labelledby="mac-title">
-    <h2 id="mac-title">The Mac does what nothing else can</h2>
-    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that carries a Mac's anisette. So Apparition gets it from macOS itself, on a Mac you own, the way Xcode does. Nothing leaves your network, and no third party is involved.</p>
-    <dl class="feature-list">
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg>It signs you in</dt>
-        <dd>Signing in with a free Apple ID needs a Mac's anisette. On macOS 26 and earlier there is nothing to set up. On macOS 27, where macOS keeps it to itself, Apparition runs a small macOS virtual machine for it: one button, no typing and no administrator password.</dd>
-      </div>
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>It's the companion</dt>
-        <dd>Left running in the menu bar, Apparition for Mac relays the device's connection in place of LocalDevVPN, carrying only encrypted traffic. Put the device and the Mac on Tailscale and refreshing, signing and JIT keep working from anywhere, without taking the device's only VPN slot.</dd>
-      </div>
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>It wakes up for you</dt>
-        <dd>With "Wake for network access" on, a sleeping Mac wakes when the device knocks. A MacBook Pro asleep answered in under nine seconds, so the Mac needn't stay awake all night to be ready in the morning.</dd>
-      </div>
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>It builds your apps</dt>
-        <dd>The Apparition Store, the build service inside the Mac app, builds your Xcode projects, signs them, installs them over the device's own pairing and keeps every build. See <a href="#develop">Develop</a>.</dd>
-      </div>
-    </dl>
-  </section>
-
   <section id="how" class="how" aria-labelledby="how-title">
     <h2 id="how-title">Three steps, and then the device runs itself</h2>
     <ol class="steps">
       <li>
-        <h3>Install Apparition on your Mac</h3>
+        <h3>Install Apparition on your computer</h3>
         <p>Download the app and pair your device. On Vision Pro, open Settings &gt; General &gt; Remote Devices and type the code it shows; Apple TV pairs the same way from Settings &gt; Remotes and Devices &gt; Remote App and Devices. An iPhone or iPad pairs over a USB cable once, unless it already syncs with your Mac over Wi-Fi. Then sign in with your Apple ID, or choose your own certificate and profile, and install.</p>
         <p class="aside">Prefer a terminal? The <code>apparition</code> command line does the same, and the app can put it on your PATH.</p>
       </li>
       <li>
         <h3>It arrives ready to sign</h3>
-        <p>The Mac hands Apparition on the device its pairing and the signing it used, so there's nothing to set up twice, and the two don't each take one of a free account's certificates.</p>
+        <p>The computer hands Apparition on the device its pairing and the signing it used, so there's nothing to set up twice, and the two don't each take one of a free account's certificates.</p>
       </li>
       <li>
-        <h3>Install apps, and leave the Mac running</h3>
-        <p>Add a source and install from it, right on the device. A daily Shortcuts automation re-signs your apps before they expire, and launching with JIT works from the device too. Both reach your Mac, which stays in the menu bar, only when the Apple ID work needs it.</p>
+        <h3>Install apps, or build your own</h3>
+        <p>Add a source and install from it, right on the device, or add an Xcode project and build it onto the device. A daily Shortcuts automation re-signs your apps before they expire, and launching with JIT works from the device too. Both reach your computer, left in the menu bar, only when the Apple ID work needs it.</p>
       </li>
     </ol>
   </section>
 
   <section id="develop" class="develop" aria-labelledby="develop-title">
-    <h2 id="develop-title">Build your own apps, too</h2>
-    <p class="section-note">Choose <strong>Develop apps</strong> the first time the Mac app opens, or switch with the buttons in its header at any time. Both modes share the same pairing and signing.</p>
+    <h2 id="develop-title">A faster loop for your own apps</h2>
+    <p class="section-note">Apparition is a development tool first. Your Mac builds, the device runs, and what you change is in the running app a few seconds later. Choose <strong>Develop apps</strong> the first time the Mac app opens, or switch with the buttons in its header at any time. Both modes share the same pairing and signing.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Xcode projects to your devices</dt>
-        <dd>Add a project's folder and the Store reads its schemes and bundle IDs. Start a build from the Mac, or from the headset and follow it in Activity. Builds are installed and launched over Apparition's own pairing, not Xcode's, and kept with a manifest of exactly what went into them.</dd>
+        <dd>Add a project's folder and the Apparition Store, the build service inside the Mac app, reads its schemes and bundle IDs. Start a build from the Mac, or from the headset and follow it in Activity. Builds are installed and launched over Apparition's own pairing, not Xcode's, and every build is kept with a manifest of exactly what went into it. Launch a build with JIT when it needs to generate code, with its console attached.</dd>
       </div>
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>JIT and live patching</dt>
-        <dd>Launch a fresh build with JIT, or apply Swift changes to a running app without rebuilding, and let an agent drive your apps' debug servers through the Mac.</dd>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>Live patching, no rebuild</dt>
+        <dd>Edit a Swift file and run <code>apparition inject</code>: the running app has the change in a few seconds, with its state intact. You can also evaluate Swift inside the live app to read a model or try a call. The device asks you to allow code changes, so nothing is patched behind your back.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8M12 3v3M7 9a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0zM3 11h4M17 11h4M3 17h4M17 17h4"/></svg>DebugTrace, built in</dt>
+        <dd><a href="https://github.com/illixion/DebugTrace">DebugTrace</a> is the Swift package that makes your app debuggable while it runs, and it is an integral part of this project. Register an endpoint once and the app serves it over HTTP and MCP, so you, or an agent working on the Mac, can read its state, drive it and watch its privacy-labelled log, with no logging added and no rebuild.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16M9 5v4M15 10v4M8 15v4"/></svg>Tune by feel</dt>
+        <dd>A value you are adjusting, such as a brightness, a curve or a timing, becomes a slider in the Mac app's Debug tab. Beside it each running dev build has a live log, a profiler that names the hot functions and a memory view.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5M12 16.5v.5M4 20 12 4l8 16z"/></svg>Crashes and traces</dt>
-        <dd>Apps that link DebugTrace upload signed debug traces to the Store, which symbolicates their crash reports from the build that is installed on each device.</dd>
+        <dd>Apps that link DebugTrace upload signed debug traces to the Store, with the breadcrumbs from the run that died. It symbolicates crash reports from the exact build installed on each device.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>From a PC, through the Mac</dt>
-        <dd>Pair a Windows or Linux computer, or another Mac, with your Mac for developer access. Its builds go to your devices through the Mac with <code>apparition deploy</code>, at home or over Tailscale.</dd>
+        <dd>Pair a Windows or Linux computer, or another Mac, with your Mac for developer access. Its agents drive your apps' debug servers through the Mac, and its builds go to your devices with <code>apparition deploy</code>, at home or over Tailscale.</dd>
       </div>
     </dl>
+
+    <div class="snippets">
+      <figure>
+        <figcaption>In the app: register once</figcaption>
+<pre><code>DebugSurface.shared.register([
+  .query("player", "Position and mode") { _ in
+    Player(x: game.x, flying: game.flying)
+  },
+  .command("teleport", "Move the player",
+    parameters: [.number("x", "world x")]) { args in
+    game.teleport(x: try args.requireDouble("x"))
+  },
+])</code></pre>
+      </figure>
+      <figure>
+        <figcaption>From the Mac: change it live</figcaption>
+<pre><code>apparition build --run --mcp --inject
+apparition inject com.example.app \
+  --device AVP --file Sources/Update.swift
+apparition inject com.example.app \
+  --device AVP --run 'return model.count'</code></pre>
+      </figure>
+    </div>
   </section>
 
-  <section id="features" class="features" aria-labelledby="features-title">
-    <h2 id="features-title">And everything a sideloader should do</h2>
+  <section id="sideload" class="features" aria-labelledby="sideload-title">
+    <h2 id="sideload-title">Sideloading and JIT, without the weekly chore</h2>
+    <p class="section-note">The same tool installs other people's apps. A free Apple ID signs them for seven days, and Apparition on the device re-signs them before they expire.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Sources you already use</dt>
@@ -183,21 +192,56 @@
     </dl>
   </section>
 
-  <section id="no-mac" class="no-mac" aria-labelledby="no-mac-title">
-    <h2 id="no-mac-title">What works without a Mac</h2>
-    <p class="section-note">A Mac is the supported setup, but it isn't a wall. Only two things really need one.</p>
+  <section id="anywhere" class="anywhere" aria-labelledby="anywhere-title">
+    <h2 id="anywhere-title">Refresh and launch from anywhere</h2>
+    <p class="section-note">Put the device and the computer running Apparition on <a href="https://tailscale.com">Tailscale</a>, and the weekly refresh, signing and JIT keep working wherever the device is. No cable, no trip home, no Xcode involved and no computer on the same network.</p>
+    <dl class="feature-list">
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>The companion relays the connection</dt>
+        <dd>The device resets connections it makes to its own pairing service, so Apparition asks a companion, the Mac app left in the menu bar, to connect back to it. The device then sees the connection coming from the companion, whether that is over your Wi-Fi or over Tailscale.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>It leaves the VPN slot alone</dt>
+        <dd>AltStore needs its computer on the same Wi-Fi. SideStore and StikDebug use LocalDevVPN, which takes the device's only VPN slot, so Tailscale can't run beside it. Apparition's companion replaces LocalDevVPN, so Tailscale stays connected.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>It wakes up for you at home</dt>
+        <dd>With "Wake for network access" on, a sleeping Mac wakes when the device knocks. A MacBook Pro asleep answered in under nine seconds, so the Mac needn't stay awake all night to be ready in the morning. Away from home, Tailscale can't wake it, so leave it awake.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg>Only ciphertext crosses it</dt>
+        <dd>The companion carries encrypted traffic with no keys, and connects back only to the device that asked. Your Apple ID and password go straight to Apple from the device you sign in on.</dd>
+      </div>
+    </dl>
+    <p class="mac-note"><a href="https://github.com/illixion/Apparition#away-from-home-over-tailscale">Step by step setup on GitHub</a></p>
+  </section>
+
+  <section id="mac" class="mac" aria-labelledby="mac-title">
+    <h2 id="mac-title">Signing in: we recommend your own Mac</h2>
+    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that carries a Mac's anisette, the data that identifies the computer. We recommend taking it from a Mac you own, as Xcode does, because no one can take it away from you, nothing about your sign-in goes to a third party and it behaves exactly as Apple's own tools. It is a recommendation, not a requirement: other sources still work, and we just don't supply one.</p>
+    <dl class="feature-list">
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 15 or earlier: the best</dt>
+        <dd>The Mac's own anisette needs no setup and no change to its security, and your other Apple devices get the usual sign-in prompt. This is the tested setup. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>A newer Mac: a small VM</dt>
+        <dd>On macOS 27, macOS keeps its anisette to itself (macOS 26 isn't verified yet). On an Apple-silicon Mac, Apparition makes a small macOS virtual machine for it: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: Apple sends the 2FA code to a VM's sign-ins by SMS only, never as a prompt on your devices.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server</dt>
+        <dd>Still works, on any computer with no Mac at all. Give the address of any anisette v3 server, yours or someone else's, and use Check server to see what it serves. Apparition doesn't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a server built from another platform's libraries may be refused.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>A paid developer account</dt>
+        <dd>A certificate and profile you made on Apple's developer website sign apps with no sign-in, so they need no anisette from anyone.</dd>
+      </div>
+    </dl>
+
     <div class="qa">
-      <details open>
+      <details>
         <summary>Works with any computer, or none</summary>
-        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion, with no computer at all (it takes the device's only VPN slot, so not alongside Tailscale). A computer is needed once, to install Apparition.</p>
-      </details>
-      <details>
-        <summary>Signing with a paid developer account</summary>
-        <p>A certificate and profile you made on Apple's developer website sign apps with no sign-in, so they need no anisette and no Mac.</p>
-      </details>
-      <details>
-        <summary>Signing with a free Apple ID, without a Mac</summary>
-        <p>This is the part that needs a Mac's anisette. Pair your Windows or Linux computer, or a device away from home, with a Mac running Apparition, and it signs through that Mac. Without one, you can still start with a third-party anisette server, given by address. Apple decides whether that works: it gives developer access to a Mac's anisette, so a server built from another platform's libraries may be refused. Apparition doesn't provide or recommend one.</p>
+        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion, with no computer at all (it takes the device's only VPN slot, so not alongside Tailscale). A computer is needed once, to install Apparition. Windows and Linux computers, and devices away from home, can also pair with a Mac running Apparition and sign in through its anisette over an encrypted channel.</p>
       </details>
       <details>
         <summary>Building your own apps, without a Mac</summary>
@@ -211,11 +255,23 @@
     <div class="qa">
       <details open>
         <summary>What do I need?</summary>
-        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a Mac you own, at home or reached over Tailscale. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate. Building your own apps needs Xcode on the Mac.</p>
+        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own is recommended, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
       </details>
       <details>
         <summary>Which macOS does it need?</summary>
-        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 26 or earlier supplies its own anisette with no setup. On macOS 27 it can't without turning off protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. The macOS licence allows macOS VMs only on Apple hardware, which is one more reason the Mac has to be yours.</p>
+        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 15 or earlier supplies its own anisette with no setup, and that is the tested setup. On macOS 27 it can't without turning off protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. macOS 26 hasn't been verified yet. The macOS licence allows macOS VMs only on Apple hardware.</p>
+      </details>
+      <details>
+        <summary>Can I use a third-party anisette server instead?</summary>
+        <p>Yes. In Settings, or the sign-in's Anisette data, give a server's address. Apparition supports it on every computer, but doesn't supply an address or recommend a server. You are trusting its operator with the data that identifies your sign-in, and Apple changes what it accepts without notice. Servers that serve a Mac's anisette get through; ones built from another platform's libraries may be refused (<code>-80046</code>). A Mac you own is the setup we can support.</p>
+      </details>
+      <details>
+        <summary>What is DebugTrace, and do I have to use it?</summary>
+        <p>It's a separate open-source Swift package, <a href="https://github.com/illixion/DebugTrace">DebugTrace</a>, that you link into an app you build. It adds a logger with privacy labels, debug traces and a debug server for you and your agents. Apparition installs and refreshes any app without it. The live debugging, tuning and trace features of the Mac app need it.</p>
+      </details>
+      <details>
+        <summary>Is live patching safe?</summary>
+        <p>The device asks "Allow code changes?" for each patch, unless you tapped "Allow for 15 Minutes", and a refused patch changes nothing. Connecting to your Mac doesn't grant debug access either: the device approves each new client, and each screen capture, separately.</p>
       </details>
       <details>
         <summary>Which apps work?</summary>
@@ -227,11 +283,11 @@
       </details>
       <details>
         <summary>What is anisette, and what does it see?</summary>
-        <p>Signing in to Apple needs "anisette" data that identifies the computer. Apparition takes it from your own Mac and runs no Apple code made for another platform. Windows, Linux and devices pair with that Mac over an encrypted channel that carries only anisette requests: your Apple ID and password go straight to Apple from the computer or device you sign in on.</p>
+        <p>Signing in to Apple needs "anisette" data that identifies the computer. Apparition takes it from your own Mac, or from a server you give, and runs no Apple code made for another platform. Windows, Linux and devices pair with a Mac over an encrypted channel that carries only anisette requests: your Apple ID and password go straight to Apple from the computer or device you sign in on.</p>
       </details>
       <details>
         <summary>Signing in fails with error -80045. What now?</summary>
-        <p>Since 12 October 2026 Apple refuses sign-ins whose anisette doesn't match the device they claim to be, which broke most sideloaders. Apparition claims what its anisette really is, so it handles it. The first sign-in from a computer or device Apple hasn't seen asks for the code Apple sends to your other devices; after that, no code is needed. Accounts with no trusted devices, only a phone number for codes, can't sign in this way yet.</p>
+        <p>Since 12 October 2026 Apple refuses sign-ins whose anisette doesn't match the device they claim to be, which broke most sideloaders. Apparition claims what its anisette really is, so it handles it. The first sign-in from a computer or device Apple hasn't seen asks for a 2FA code: Apple sends it to your other devices when the anisette is a real Mac's, and by SMS to your trusted phone number when it comes from a VM.</p>
       </details>
       <details>
         <summary>My Apple ID uses security keys. Can I still use it?</summary>
@@ -239,7 +295,7 @@
       </details>
       <details>
         <summary>Does it work away from home?</summary>
-        <p>Yes, JIT included, over Tailscale. Put the device and the Mac running Apparition on the same tailnet, then in Apparition's Setup type the Mac's Tailscale address with port 49160 (<code>100.x.y.z:49160</code>) and use its anisette. The Mac at home then keeps signing and refreshing your apps, and launching them with JIT, wherever you are. AltStore and SideStore need the same Wi-Fi or LocalDevVPN for that. <a href="https://github.com/illixion/Apparition#away-from-home-over-tailscale">Step by step</a>.</p>
+        <p>Yes, JIT included, over Tailscale. Put the device and the computer running Apparition on the same tailnet, then in Apparition's Setup type its Tailscale address with port 49160 (<code>100.x.y.z:49160</code>). That computer at home then keeps refreshing your apps, and launching them with JIT, wherever you are. AltStore and SideStore need the same Wi-Fi or LocalDevVPN for that. <a href="https://github.com/illixion/Apparition#away-from-home-over-tailscale">Step by step</a>.</p>
       </details>
       <details>
         <summary>Will my apps refresh on their own?</summary>

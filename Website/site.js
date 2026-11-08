@@ -317,7 +317,7 @@
       frag.appendChild(list);
       if (mine === "windows" || mine === "linux") {
         frag.appendChild(el("p", "mac-note",
-          "Signing in with a free Apple ID needs a Mac's anisette: pair this computer with a Mac running Apparition, or see what works without a Mac above."));
+          "To sign in with a free Apple ID, pair this computer with a Mac running Apparition, which we recommend, or give a third-party anisette server's address. See Signing in above."));
       }
     }
 

@@ -579,6 +579,7 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
   .steps li { padding-left: 4.25rem; }
   .steps li::before { position: absolute; left: 0; top: 0; margin: 0; }
   .feature-list { grid-template-columns: minmax(0, 1fr); row-gap: 2rem; }
+  .snippets { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 560px) {
@@ -600,6 +601,31 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
 .section-note + .qa { margin-top: 2rem; }
 .section-note strong { color: var(--ink); }
 .mac-note { margin-top: 1.25rem; font-size: .95rem; color: var(--muted); max-width: 44rem; }
+.snippets {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+.snippets figure { margin: 0; min-width: 0; }
+.snippets figcaption {
+  margin-bottom: .6rem;
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--ink);
+}
+.snippets pre {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  font-size: .85rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.snippets code { font-size: inherit; }
 .release-lead { margin-top: 1.5rem; color: var(--ink); }
 .release-lead + .installers { margin-top: 1rem; }
 
