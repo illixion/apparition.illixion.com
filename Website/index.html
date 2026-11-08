@@ -222,11 +222,11 @@ apparition inject com.example.app \
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 15 or earlier: the best</dt>
-        <dd>The Mac's own anisette needs no setup and no change to its security, and your other Apple devices get the usual sign-in prompt. This is the tested setup. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
+        <dd>The Mac's own anisette needs no setup and no change to its security, and your other Apple devices get the usual sign-in push, with SMS offered as well. This is the tested setup. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>A newer Mac: a small VM</dt>
-        <dd>On macOS 27, macOS keeps its anisette to itself (macOS 26 isn't verified yet). On an Apple-silicon Mac, Apparition makes a small macOS virtual machine for it: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: Apple sends the 2FA code to a VM's sign-ins by SMS only, never as a prompt on your devices.</dd>
+        <dd>On macOS 27, macOS keeps its anisette to itself (a real Mac on macOS 26 isn't verified yet). On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it, which is verified to work: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: a VM's sign-ins confirm by SMS only, never by a push on your devices, where a real Mac's get the push and SMS too.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server</dt>
@@ -259,7 +259,7 @@ apparition inject com.example.app \
       </details>
       <details>
         <summary>Which macOS does it need?</summary>
-        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 15 or earlier supplies its own anisette with no setup, and that is the tested setup. On macOS 27 it can't without turning off protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. macOS 26 hasn't been verified yet. The macOS licence allows macOS VMs only on Apple hardware.</p>
+        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 15 or earlier supplies its own anisette with no setup, and that is the tested setup. On macOS 27 it can't without turning off protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. A real Mac on macOS 26 hasn't been verified yet, though the macOS 26 VM has. The macOS licence allows macOS VMs only on Apple hardware.</p>
       </details>
       <details>
         <summary>Can I use a third-party anisette server instead?</summary>
@@ -287,7 +287,7 @@ apparition inject com.example.app \
       </details>
       <details>
         <summary>Signing in fails with error -80045. What now?</summary>
-        <p>Since 12 October 2026 Apple refuses sign-ins whose anisette doesn't match the device they claim to be, which broke most sideloaders. Apparition claims what its anisette really is, so it handles it. The first sign-in from a computer or device Apple hasn't seen asks for a 2FA code: Apple sends it to your other devices when the anisette is a real Mac's, and by SMS to your trusted phone number when it comes from a VM.</p>
+        <p>Since 12 October 2026 Apple refuses sign-ins whose anisette doesn't match the device they claim to be, which broke most sideloaders. Apparition claims what its anisette really is, so it handles it. The first sign-in from a computer or device Apple hasn't seen asks for a 2FA code: Apple sends it as a push to your other devices, with SMS offered as well, when the anisette is a real Mac's, and by SMS only to your trusted phone number when it comes from a VM.</p>
       </details>
       <details>
         <summary>My Apple ID uses security keys. Can I still use it?</summary>
