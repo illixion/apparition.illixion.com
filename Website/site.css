@@ -417,6 +417,7 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
   margin-top: .75rem;
   max-width: var(--measure);
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 .release-notes > * + * { margin-top: .75rem; }
 .release-notes h4, .release-notes h5, .release-notes h6 {
@@ -447,6 +448,18 @@ main > .hero { padding-top: clamp(2rem, 6vw, 5rem); }
 .log-entry { padding: 1.75rem 0; border-top: 1px solid var(--line); }
 .log-entry:first-child { border-top: 0; padding-top: .5rem; }
 .log-entry .release-head h3 { font-size: clamp(1.25rem, 1.1rem + .8vw, 1.5rem); }
+
+.log-older-title {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+.log-older { margin-top: .75rem; }
+.log-older summary { justify-content: flex-start; flex-wrap: wrap; gap: .1rem 1rem; }
+.log-older summary::after { margin-left: auto; }
+.log-older .release-date { font-weight: 400; font-size: .9375rem; color: var(--muted); }
+.log-older .release-notes { margin-top: 0; padding-bottom: 1.25rem; }
+.log-older .release-notes p { padding: 0; }
 
 .installers {
   list-style: none;

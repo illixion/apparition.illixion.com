@@ -55,11 +55,14 @@
         var href = safeUrl(match[4], true);
         node = href ? link(href, null, match[3]) : document.createTextNode(match[3]);
       } else if (match[5]) {
-        node = el("strong", null, match[6]);
+        node = el("strong");
+        renderInlineMarkdown(match[6], node);
       } else if (match[7]) {
-        node = el("em", null, match[8]);
+        node = el("em");
+        renderInlineMarkdown(match[8], node);
       } else {
-        node = el("del", null, match[9]);
+        node = el("del");
+        renderInlineMarkdown(match[9], node);
       }
       parent.appendChild(node);
       last = pattern.lastIndex;
@@ -422,22 +425,41 @@
     if (!section || !list) return;
     var entries = releases.filter(function (r) { return r && typeof r.version === "string"; })
       .sort(function (a, b) { return newerVersion(a.version, b.version) ? -1 : newerVersion(b.version, a.version) ? 1 : 0; });
+    // The newest release is open on the page; older ones fold away under their version and date.
+    function notesFor(release) {
+      if (typeof release.notes !== "string" || !release.notes.trim()) return null;
+      var notes = el("div", "release-notes");
+      renderMarkdown(release.notes.trim(), notes);
+      return notes;
+    }
     var frag = document.createDocumentFragment();
-    entries.forEach(function (release) {
-      var entry = el("article", "log-entry");
-      var head = el("div", "release-head");
-      head.appendChild(el("h3", null, "Apparition " + release.version));
+    var older = el("div", "qa log-older");
+    entries.forEach(function (release, index) {
       var date = formatDate(release.date);
-      if (date) head.appendChild(el("p", "release-date", date));
-      entry.appendChild(head);
-      if (typeof release.notes === "string" && release.notes.trim()) {
-        var notes = el("div", "release-notes");
-        renderMarkdown(release.notes.trim(), notes);
-        entry.appendChild(notes);
+      var notes = notesFor(release);
+      if (index === 0) {
+        var entry = el("article", "log-entry");
+        var head = el("div", "release-head");
+        head.appendChild(el("h3", null, "Apparition " + release.version));
+        if (date) head.appendChild(el("p", "release-date", date));
+        entry.appendChild(head);
+        if (notes) entry.appendChild(notes);
+        frag.appendChild(entry);
+        return;
       }
-      frag.appendChild(entry);
+      var fold = el("details");
+      var summary = el("summary");
+      summary.appendChild(el("span", "log-version", "Apparition " + release.version));
+      if (date) summary.appendChild(el("span", "release-date", date));
+      fold.appendChild(summary);
+      if (notes) fold.appendChild(notes);
+      older.appendChild(fold);
     });
     if (!frag.childNodes.length) return;
+    if (older.childNodes.length) {
+      frag.appendChild(el("h3", "log-older-title", "Earlier releases"));
+      frag.appendChild(older);
+    }
     list.replaceChildren(frag);
     section.hidden = false;
   }
