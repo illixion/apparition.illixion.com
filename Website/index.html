@@ -221,16 +221,16 @@ apparition inject com.example.app \
     <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that carries a Mac's anisette, the data that identifies the computer. We recommend taking it from a Mac you own, as Xcode does, because no one can take it away from you, nothing about your sign-in goes to a third party and it behaves exactly as Apple's own tools. It is a recommendation, not a requirement: other sources still work, and we just don't supply one.</p>
     <dl class="feature-list">
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 15 or earlier: the best</dt>
-        <dd>The Mac's own anisette needs no setup and no change to its security, with SIP and AMFI staying on, and your other Apple devices get the usual sign-in push, with SMS offered as well. This is the tested setup. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 26 or earlier: the best</dt>
+        <dd>The Mac's own anisette needs no setup and no change to its security, with SIP and AMFI staying on, and your other Apple devices get the usual sign-in push, with SMS offered as well. We tested it on an Intel MacBook on macOS 15.8, and confirmed on a stock macOS 26 guest that an ordinary program gets the anisette with SIP and AMFI on. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
       </div>
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>macOS 26 or 27: a small VM</dt>
-        <dd>On macOS 27, macOS keeps its anisette to itself (a real Mac on macOS 26 hasn't been tested). On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: a VM's sign-ins confirm by SMS only, never by a push on your devices, where a real Mac's get the push and SMS too.</dd>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>macOS 27: a small VM</dt>
+        <dd>On macOS 27, macOS keeps its anisette to itself. On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: a VM's sign-ins confirm by SMS only, never by a push on your devices, where a real Mac's get the push and SMS too.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7-7 9-4-2-7-4.500-7-9V6z"/><path d="M9 9l6 6M15 9l-6 6"/></svg>macOS 27 with SIP and AMFI off</dt>
-        <dd>Should work on real hardware too, and real hardware should get the device push because it doesn't present as a VM, though we haven't tested it. macOS 27 only gives its anisette with System Integrity Protection and AMFI turned off, which lowers the Mac's security. Apparition doesn't do it for you and we don't recommend it on a Mac you use for anything else, where macOS 15 keeps both on. We haven't tested whether macOS 26 needs it too.</dd>
+        <dd>Should work on real hardware too, and real hardware should get the device push because it doesn't present as a VM, though we haven't tested it. macOS 27 only gives its anisette with System Integrity Protection and AMFI turned off, which lowers the Mac's security. Apparition doesn't do it for you and we don't recommend it on a Mac you use for anything else, where macOS 26 and earlier keep both on.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server</dt>
@@ -263,7 +263,7 @@ apparition inject com.example.app \
       </details>
       <details>
         <summary>Which macOS does it need?</summary>
-        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 15 or earlier supplies its own anisette with no setup, and that is the tested setup. On macOS 27 it works only with SIP and AMFI off, protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. A real Mac on macOS 26 hasn't been tested yet. The macOS licence allows macOS VMs only on Apple hardware.</p>
+        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 26 or earlier supplies its own anisette with no setup, with SIP and AMFI on. On macOS 27 it works only with SIP and AMFI off, protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. The macOS licence allows macOS VMs only on Apple hardware.</p>
       </details>
       <details>
         <summary>Can I use a third-party anisette server instead?</summary>
