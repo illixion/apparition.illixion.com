@@ -222,23 +222,27 @@ apparition inject com.example.app \
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 15 or earlier: the best</dt>
-        <dd>The Mac's own anisette needs no setup and no change to its security, and your other Apple devices get the usual sign-in push, with SMS offered as well. This is the tested setup. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
+        <dd>The Mac's own anisette needs no setup and no change to its security, with SIP and AMFI staying on, and your other Apple devices get the usual sign-in push, with SMS offered as well. This is the tested setup. Intel Macs never get macOS 27, so an old Intel MacBook that stays awake makes a good always-on companion.</dd>
       </div>
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>A newer Mac: a small VM</dt>
-        <dd>On macOS 27, macOS keeps its anisette to itself (a real Mac on macOS 26 isn't verified yet). On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it, which is verified to work: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: a VM's sign-ins confirm by SMS only, never by a push on your devices, where a real Mac's get the push and SMS too.</dd>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>macOS 26 or 27: a small VM</dt>
+        <dd>On macOS 26 and 27, macOS keeps its anisette to itself. On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it: one button, no typing and no administrator password, and it costs no security on the Mac you use. The limit: a VM's sign-ins confirm by SMS only, never by a push on your devices, where a real Mac's get the push and SMS too.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7-7 9-4-2-7-4.500-7-9V6z"/><path d="M9 9l6 6M15 9l-6 6"/></svg>macOS 26 or 27 with SIP and AMFI off</dt>
+        <dd>Works on real hardware too, with the device push, but it needs System Integrity Protection and AMFI turned off, which lowers the Mac's security. Apparition doesn't do it for you and we don't recommend it on a Mac you use for anything else, where macOS 15 keeps both on.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server</dt>
         <dd>Still works, on any computer with no Mac at all. Give the address of any anisette v3 server, yours or someone else's, and use Check server to see what it serves. Apparition doesn't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a server built from another platform's libraries may be refused.</dd>
       </div>
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>A paid developer account</dt>
-        <dd>A certificate and profile you made on Apple's developer website sign apps with no sign-in, so they need no anisette from anyone.</dd>
-      </div>
     </dl>
 
     <div class="qa">
+      <details>
+        <summary>A paid developer account needs no anisette at all</summary>
+        <p>A certificate and profile you made on Apple's developer website sign apps with no sign-in, so they need no anisette from anyone, and no Mac.</p>
+      </details>
       <details>
         <summary>Works with any computer, or none</summary>
         <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion, with no computer at all (it takes the device's only VPN slot, so not alongside Tailscale). A computer is needed once, to install Apparition. Windows and Linux computers, and devices away from home, can also pair with a Mac running Apparition and sign in through its anisette over an encrypted channel.</p>
@@ -259,7 +263,7 @@ apparition inject com.example.app \
       </details>
       <details>
         <summary>Which macOS does it need?</summary>
-        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 15 or earlier supplies its own anisette with no setup, and that is the tested setup. On macOS 27 it can't without turning off protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. A real Mac on macOS 26 hasn't been verified yet, though the macOS 26 VM has. The macOS licence allows macOS VMs only on Apple hardware.</p>
+        <p>Any Mac can run the app. For signing in with a free Apple ID, a Mac on macOS 15 or earlier supplies its own anisette with no setup, and that is the tested setup. On macOS 26 and 27 it works only with SIP and AMFI off, protections you shouldn't turn off on the Mac you use, so on Apple silicon Apparition sets up a small macOS 26 virtual machine for it (Companion &gt; Set up the anisette VM) and runs it behind the companion. It saves itself to disk when idle, so it costs memory only around sign-ins. The macOS licence allows macOS VMs only on Apple hardware.</p>
       </details>
       <details>
         <summary>Can I use a third-party anisette server instead?</summary>
