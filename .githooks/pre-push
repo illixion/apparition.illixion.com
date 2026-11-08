@@ -1,0 +1,8 @@
+#!/bin/sh
+# Hand off to the owner's global pre-push hook (refuses unsigned commits authored under the
+# personal identity). A repo-local core.hooksPath (this directory) shadows the global one, so
+# without this file nothing would check signatures before a push. Does nothing on a machine
+# that doesn't have the global hook.
+global="$HOME/.config/git/hooks/pre-push"
+[ -x "$global" ] && exec "$global" "$@"
+exit 0
