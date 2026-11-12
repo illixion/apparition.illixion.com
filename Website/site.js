@@ -487,9 +487,34 @@
       .catch(function () { renderSoon(root); });
   }
 
+  // The section links collapse behind a menu button on narrow screens (the CSS shows it
+  // only once this has run, so without script the links just wrap).
+  function menu() {
+    var button = document.querySelector(".menu-toggle");
+    var nav = document.getElementById("site-nav");
+    if (!button || !nav) return;
+    document.documentElement.classList.add("menu-js");
+    button.hidden = false;
+    function set(open) {
+      nav.classList.toggle("open", open);
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    button.addEventListener("click", function () { set(!nav.classList.contains("open")); });
+    nav.addEventListener("click", function (event) {
+      if (event.target && event.target.closest && event.target.closest("a")) set(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("open")) { set(false); button.focus(); }
+    });
+    document.addEventListener("click", function (event) {
+      if (nav.classList.contains("open") && !nav.contains(event.target) && !button.contains(event.target)) set(false);
+    });
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", load);
+    document.addEventListener("DOMContentLoaded", function () { menu(); load(); });
   } else {
+    menu();
     load();
   }
 })();

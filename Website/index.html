@@ -16,8 +16,8 @@
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Fraunces-Soft.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/site.css?v=ded8659459">
-<script src="/site.js?v=6e5c577cb3" defer></script>
+<link rel="stylesheet" href="/site.css?v=d8b050d500">
+<script src="/site.js?v=7a7fd050ee" defer></script>
 <script src="https://stats.illixion.com/t.js" defer data-website-id="c73f2046-1853-4b76-8dfb-e9447638be04" data-domains="apparition.illixion.com"></script>
 <script src="/engaged.js" defer></script>
 </head>
@@ -29,17 +29,22 @@
     <img src="/logo.svg" alt="" width="36" height="36">
     <span>Apparition</span>
   </a>
-  <nav aria-label="Sections">
-    <a href="#develop">Develop</a>
-    <a href="#sideload">Sideload</a>
-    <a href="#anywhere">Anywhere</a>
-    <a href="#computers">Your computer</a>
-    <a href="#faq">Questions</a>
-    <a href="https://github.com/illixion/Apparition/blob/main/docs/SUPPORTED_APPS.md">Tested apps</a>
-    <a href="#changelog">Changelog</a>
-    <a href="/apple-employees/">To Apple</a>
+  <div class="top-actions">
+    <nav id="site-nav" aria-label="Sections">
+      <a href="#develop">Develop</a>
+      <a href="#sideload">Sideload</a>
+      <a href="#anywhere">Anywhere</a>
+      <a href="#computers">Your computer</a>
+      <a href="#faq">Questions</a>
+      <a href="https://github.com/illixion/Apparition/blob/main/docs/SUPPORTED_APPS.md">Tested apps</a>
+      <a href="#changelog">Changelog</a>
+      <a href="/apple-employees/">To Apple</a>
+    </nav>
     <a class="nav-cta" href="#download">Download</a>
-  </nav>
+    <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav" hidden>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
 </header>
 
 <main id="main">
