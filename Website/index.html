@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Fraunces-Soft.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css?v=85cda98dd0">
-<script src="/site.js?v=5066e5ee24" defer></script>
+<script src="/site.js?v=6e5c577cb3" defer></script>
 <script src="https://stats.illixion.com/t.js" defer data-website-id="c73f2046-1853-4b76-8dfb-e9447638be04" data-domains="apparition.illixion.com"></script>
 <script src="/engaged.js" defer></script>
 </head>
@@ -33,7 +33,8 @@
     <a href="#develop">Develop</a>
     <a href="#sideload">Sideload</a>
     <a href="#anywhere">Anywhere</a>
-    <a href="#mac">Your Mac</a>
+    <a href="#computers">Your computer</a>
+    <a href="#mac">Signing in</a>
     <a href="#faq">Questions</a>
     <a href="https://github.com/illixion/Apparition/blob/main/docs/SUPPORTED_APPS.md">Tested apps</a>
     <a href="#changelog">Changelog</a>
@@ -48,10 +49,10 @@
       <h1 id="hero-title">Develop, debug and sideload.</h1>
       <p class="lede">Apparition builds your Xcode projects onto Apple Vision Pro, iPhone, iPad and Apple TV, patches Swift into the running app without a rebuild, and lets you or an agent debug it live through DebugTrace. It also sideloads other people's apps, launches them with JIT, and re-signs them every week over Tailscale, with no cable and no computer on the same network.</p>
       <div class="hero-actions">
-        <a class="button primary" href="#download">Download for Mac</a>
+        <a class="button primary" href="#download">Download</a>
         <a class="button quiet" href="#develop">How development works</a>
       </div>
-      <p class="fineprint">Free and open source under the MIT license. Windows and Linux work too.</p>
+      <p class="fineprint">Free and open source under the MIT license. For macOS, Windows and Linux: a Mac gives the most complete setup, and none is required.</p>
     </div>
 
     <figure class="apparition" aria-hidden="true">
@@ -108,7 +109,7 @@
 
   <section id="develop" class="develop" aria-labelledby="develop-title">
     <h2 id="develop-title">A faster loop for your own apps</h2>
-    <p class="section-note">Your Mac builds, the device runs, and what you change is in the running app a few seconds later. Choose <strong>Develop apps</strong> when the Mac app first opens, or switch in its header at any time.</p>
+    <p class="section-note">Your Mac builds, the device runs, and what you change is in the running app a few seconds later. Choose <strong>Develop apps</strong> when the desktop app first opens, or switch in its header at any time.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>Xcode projects to your devices</dt>
@@ -191,8 +192,33 @@ apparition inject com.example.app \
     <p class="mac-note"><a href="https://github.com/illixion/Apparition#away-from-home-over-tailscale">Step by step setup on GitHub</a></p>
   </section>
 
+  <section id="computers" class="computers" aria-labelledby="computers-title">
+    <h2 id="computers-title">Mac, Windows or Linux</h2>
+    <p class="section-note">The desktop app runs on all three, and installing Apparition on your device, refreshing apps, launching with JIT and the companion work the same on each, with no Mac involved. A Mac is the most complete and most stable setup; Windows and Linux are fully supported, and we keep them working.</p>
+    <dl class="feature-list">
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Mac: the most complete</dt>
+        <dd>Signing in needs nothing set up, and building your own apps (Xcode, live patching, the Develop tools) is only here. Move the app to Applications and clear the download quarantine once, since it isn't notarized.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Windows</dt>
+        <dd>Download the zip, unzip it to a folder you can write to and open <code>Apparition.exe</code>; SmartScreen may ask you to choose More info, then Run anyway. For an iPhone or iPad over USB, install Apple Devices (or iTunes) first; a Vision Pro or Apple TV pairs over Wi-Fi. To sign in with a free Apple ID with no Mac, give a third-party anisette server's address; or pair with a Mac running Apparition. A paid account's certificate needs neither. Windows on ARM works too.</dd>
+      </div>
+      <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Linux</dt>
+        <dd>Download the .deb (Debian, Ubuntu) or the AppImage for your CPU, x64 or ARM64. For an iPhone or iPad over USB, install and start <code>usbmuxd</code>. To sign in with a free Apple ID with no Mac, Apparition's own Android anisette needs nothing set up; or give a third-party server's address, or pair with a Mac.</dd>
+      </div>
+    </dl>
+    <div class="qa">
+      <details>
+        <summary>Can I develop my own apps without a Mac?</summary>
+        <p>Building with Xcode and live patching need a Mac. <a href="https://github.com/xtool-org/xtool">xtool</a> builds on Linux, and on Windows through WSL, and <code>apparition deploy</code> installs the result from the PC. A PC can also pair with a Mac, whose Xcode builds and whose agents debug your apps.</p>
+      </details>
+    </div>
+  </section>
+
   <section id="mac" class="mac" aria-labelledby="mac-title">
-    <h2 id="mac-title">Signing in: we recommend your own Mac</h2>
+    <h2 id="mac-title">Signing in with a free Apple ID: we recommend your own Mac</h2>
     <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that ends as a Mac's, and it checks the anisette, the data that identifies the computer, closely. We recommend taking it from a Mac you own, as Xcode does: no one can take it away, nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. It is a recommendation, not a requirement: on macOS and Linux, Apparition can also make its own Android anisette, which passed a full sign-in on 12 November 2026, and third-party servers still work.</p>
     <dl class="feature-list">
       <div>
@@ -220,11 +246,7 @@ apparition inject com.example.app \
     <div class="qa">
       <details>
         <summary>Works with any computer, or none</summary>
-        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. A Windows computer pairs with a Mac running Apparition to sign in through its anisette; a Mac or Linux computer can also use Apparition's own. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
-      </details>
-      <details>
-        <summary>Building your own apps, without a Mac</summary>
-        <p>Building with Xcode and live patching need a Mac. <a href="https://github.com/xtool-org/xtool">xtool</a> builds on Linux, and on Windows through WSL, and <code>apparition deploy</code> installs the result from the PC.</p>
+        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux, with no Mac. For a free Apple ID's sign-in, a Windows computer pairs with a Mac running Apparition or uses a third-party anisette server's address; a Mac or Linux computer can also use Apparition's own. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
       </details>
     </div>
   </section>
@@ -234,7 +256,7 @@ apparition inject com.example.app \
     <div class="qa">
       <details open>
         <summary>What do I need?</summary>
-        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, Apparition's own Android anisette on macOS or Linux, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
+        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition: a Mac, a Windows PC or a Linux machine. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, Apparition's own Android anisette on macOS or Linux, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
       </details>
       <details>
         <summary>What is DebugTrace, and do I have to use it?</summary>
