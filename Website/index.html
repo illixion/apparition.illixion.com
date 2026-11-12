@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Fraunces-Soft.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css?v=85cda98dd0">
-<script src="/site.js?v=ef511f5547" defer></script>
+<script src="/site.js?v=5066e5ee24" defer></script>
 <script src="https://stats.illixion.com/t.js" defer data-website-id="c73f2046-1853-4b76-8dfb-e9447638be04" data-domains="apparition.illixion.com"></script>
 <script src="/engaged.js" defer></script>
 </head>
@@ -193,7 +193,7 @@ apparition inject com.example.app \
 
   <section id="mac" class="mac" aria-labelledby="mac-title">
     <h2 id="mac-title">Signing in: we recommend your own Mac</h2>
-    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that carries a Mac's anisette, the data that identifies the computer. We recommend taking it from a Mac you own, as Xcode does: no one can take it away, nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. It is a recommendation, not a requirement. Other sources still work, and we just don't supply one.</p>
+    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that ends as a Mac's, and it checks the anisette, the data that identifies the computer, closely. We recommend taking it from a Mac you own, as Xcode does: no one can take it away, nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. It is a recommendation, not a requirement: on macOS and Linux, Apparition can also make its own Android anisette, which passed a full sign-in on 12 November 2026, and third-party servers still work.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 26 or earlier: the best</dt>
@@ -208,15 +208,19 @@ apparition inject com.example.app \
         <dd>Should work on real hardware, and should get the device push, though we haven't tested it. It lowers the Mac's security, Apparition doesn't do it for you, and we don't recommend it on a Mac you use for anything else.</dd>
       </div>
       <div>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16H7zM10 17h4"/></svg>Apparition's own Android anisette</dt>
+        <dd>On macOS and Linux with no Mac at all, and nothing to install or run: Apparition fetches Apple Music's Android libraries from Apple on first use and runs them itself. Apple has turned this kind of anisette away before and let it back, so it can stop working. It serves sign-ins on that computer; your devices' refreshes through the companion still need a Mac's anisette or a third-party server. Not on Windows.</dd>
+      </div>
+      <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server</dt>
-        <dd>Still works, on any computer with no Mac at all. Give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a server built from another platform's libraries may be refused (<code>-80046</code>).</dd>
+        <dd>Still works, on any computer with no Mac at all. Give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a public Android-based server passed a full sign-in on 12 November 2026.</dd>
       </div>
     </dl>
 
     <div class="qa">
       <details>
         <summary>Works with any computer, or none</summary>
-        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. A Windows or Linux computer pairs with a Mac running Apparition to sign in through its anisette. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
+        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. A Windows computer pairs with a Mac running Apparition to sign in through its anisette; a Mac or Linux computer can also use Apparition's own. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
       </details>
       <details>
         <summary>Building your own apps, without a Mac</summary>
@@ -230,7 +234,7 @@ apparition inject com.example.app \
     <div class="qa">
       <details open>
         <summary>What do I need?</summary>
-        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
+        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, Apparition's own Android anisette on macOS or Linux, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
       </details>
       <details>
         <summary>What is DebugTrace, and do I have to use it?</summary>

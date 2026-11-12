@@ -319,8 +319,9 @@
       }
       frag.appendChild(list);
       if (mine === "windows" || mine === "linux") {
-        frag.appendChild(el("p", "mac-note",
-          "To sign in with a free Apple ID, pair this computer with a Mac running Apparition, which we recommend, or give a third-party anisette server's address. See Signing in above."));
+        frag.appendChild(el("p", "mac-note", mine === "linux"
+          ? "To sign in with a free Apple ID, pair this computer with a Mac running Apparition, which we recommend, or use Apparition's own Android anisette or a third-party server's address. See Signing in above."
+          : "To sign in with a free Apple ID, pair this computer with a Mac running Apparition, which we recommend, or give a third-party anisette server's address. See Signing in above."));
       }
     }
 
