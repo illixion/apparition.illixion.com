@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/Fraunces-Soft.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css?v=d8b050d500">
-<script src="/site.js?v=7a7fd050ee" defer></script>
+<script src="/site.js?v=257506f528" defer></script>
 <script src="https://stats.illixion.com/t.js" defer data-website-id="c73f2046-1853-4b76-8dfb-e9447638be04" data-domains="apparition.illixion.com"></script>
 <script src="/engaged.js" defer></script>
 </head>
@@ -206,11 +206,11 @@ apparition inject com.example.app \
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Windows</dt>
-        <dd>Download the zip, unzip it to a folder you can write to and open <code>Apparition.exe</code>; SmartScreen may ask you to choose More info, then Run anyway. For an iPhone or iPad over USB, install Apple Devices (or iTunes) first; a Vision Pro or Apple TV pairs over Wi-Fi. To sign in with a free Apple ID with no Mac, give a third-party anisette server's address; or pair with a Mac running Apparition. A paid account's certificate needs neither. Windows on ARM works too.</dd>
+        <dd>Download the zip, unzip it to a folder you can write to and open <code>Apparition.exe</code>; SmartScreen may ask you to choose More info, then Run anyway. For an iPhone or iPad over USB, install Apple Devices (or iTunes) first; a Vision Pro or Apple TV pairs over Wi-Fi. To sign in with a free Apple ID with no Mac, run your own anisette server with one Docker command (Docker Desktop, or Docker in WSL) or give a third-party server's address; or pair with a Mac running Apparition. A paid account's certificate needs none of that. Windows on ARM works too.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Linux</dt>
-        <dd>Download the .deb (Debian, Ubuntu) or the AppImage for your CPU, x64 or ARM64. For an iPhone or iPad over USB, install and start <code>usbmuxd</code>. To sign in with a free Apple ID with no Mac, Apparition's own Android anisette needs nothing set up; or give a third-party server's address, or pair with a Mac.</dd>
+        <dd>Download the .deb (Debian, Ubuntu) or the AppImage for your CPU, x64 or ARM64. For an iPhone or iPad over USB, install and start <code>usbmuxd</code>. To sign in with a free Apple ID with no Mac, Apparition's own Android anisette needs nothing set up; or run your own server in Docker, give a third-party server's address, or pair with a Mac.</dd>
       </div>
     </dl>
     <div class="qa">
@@ -242,8 +242,8 @@ apparition inject com.example.app \
         <dd>On macOS and Linux with no Mac at all, and nothing to install or run: Apparition fetches Apple Music's Android libraries from Apple on first use and runs them itself. Apple has turned this kind of anisette away before and let it back, so it can stop working. It serves sign-ins on that computer; your devices' refreshes through the companion still need a Mac's anisette or a third-party server. Not on Windows.</dd>
       </div>
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server</dt>
-        <dd>Still works, on any computer with no Mac at all. Give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a public Android-based server passed a full sign-in on 12 November 2026.</dd>
+        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server, or your own in Docker</dt>
+        <dd>Still works, on any computer with no Mac at all. To run your own, start the pinned anisette server container with Docker Desktop (or Docker in WSL on Windows) and give Apparition <code>http://localhost:6970</code>: the command is in the <a href="https://github.com/illixion/Apparition#run-your-own-anisette-server-with-docker">README</a>, and it is the way to sign in on Windows with no Mac and no server from anyone else. Or give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a public Android-based server passed a full sign-in on 12 November 2026.</dd>
       </div>
     </dl>
 
