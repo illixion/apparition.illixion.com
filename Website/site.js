@@ -290,6 +290,12 @@
         return a.platform.indexOf("linux-") !== 0;
       });
     }
+    // Windows has a setup program (format "exe") beside its zip from the release that first
+    // made one: the button is the setup, and the zip is offered in a line below.
+    var hasSetup = {};
+    installers.forEach(function (a) { if (a.format === "exe") hasSetup[a.platform] = true; });
+    var portable = installers.filter(function (a) { return hasSetup[a.platform] && a.format !== "exe"; });
+    installers = installers.filter(function (a) { return portable.indexOf(a) < 0; });
     function rank(asset) {
       var os = splitPlatform(asset.platform).os;
       if (os === mine) return -1;
@@ -318,6 +324,21 @@
           " changes only the apps on your device, and the desktop app installs the latest of them."));
       }
       frag.appendChild(list);
+      if (portable.length) {
+        var zips = el("p", "installer-meta", "Windows without setup, as a zip to unpack anywhere: ");
+        portable.forEach(function (asset, i) {
+          var href = safeUrl(asset.urls && asset.urls[0]);
+          if (!href) return;
+          var arch = splitPlatform(asset.platform).arch;
+          if (i) zips.appendChild(document.createTextNode(", "));
+          var a = link(href, null, ARCH_NAMES[arch] || arch);
+          a.setAttribute("download", "");
+          track(a, "download", { kind: "desktop", platform: String(asset.platform || ""), yours: false });
+          zips.appendChild(a);
+        });
+        zips.appendChild(document.createTextNode(". Windows then asks about its firewall the first time Apparition runs."));
+        frag.appendChild(zips);
+      }
       if (mine === "windows" || mine === "linux") {
         frag.appendChild(el("p", "mac-note", mine === "linux"
           ? "To sign in with a free Apple ID, pair this computer with a Mac running Apparition, which we recommend, or use Apparition's own Android anisette, your own server in Docker or a third-party server's address. A paid account's certificate needs none of that. For an iPhone or iPad over USB, install and start usbmuxd first. See Signing in above."
