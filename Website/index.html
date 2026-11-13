@@ -223,7 +223,7 @@ apparition inject com.example.app \
 
   <section id="mac" class="mac" aria-labelledby="mac-title">
     <h2 id="mac-title">Signing in with a free Apple ID: we recommend your own Mac</h2>
-    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that ends as a Mac's, and it checks the anisette, the data that identifies the computer, closely. We recommend taking it from a Mac you own, as Xcode does: no one can take it away, nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. It is a recommendation, not a requirement: on macOS and Linux, Apparition can also make its own Android anisette, which passed a full sign-in on 12 November 2026, and third-party servers still work.</p>
+    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that ends as a Mac's, and it checks the anisette, the data that identifies the computer, closely. We recommend taking it from a Mac you own, as Xcode does: no one can take it away, nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. It is a recommendation, not a requirement: on macOS, Windows and Linux, Apparition can also make its own Android anisette, which passed a full sign-in on 12 November 2026, and third-party servers still work.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 26 or earlier: the best</dt>
@@ -234,23 +234,19 @@ apparition inject com.example.app \
         <dd>On macOS 27, the Mac keeps its anisette to itself. On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it: one button, no administrator password, no security cost to the Mac you use. The limit: a VM's sign-ins confirm by SMS only, with no push to your devices.</dd>
       </div>
       <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7-7 9-4-2-7-4.500-7-9V6z"/><path d="M9 9l6 6M15 9l-6 6"/></svg>macOS 27 with SIP and AMFI off</dt>
-        <dd>Should work on real hardware, and should get the device push, though we haven't tested it. It lowers the Mac's security, Apparition doesn't do it for you, and we don't recommend it on a Mac you use for anything else.</dd>
-      </div>
-      <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16H7zM10 17h4"/></svg>Apparition's own Android anisette</dt>
-        <dd>On macOS and Linux with no Mac at all, and nothing to install or run: Apparition fetches Apple Music's Android libraries from Apple on first use and runs them itself. Apple has turned this kind of anisette away before and let it back, so it can stop working. The companion can offer it to your devices too, which suits a Mac with 8 GB that has no room for the VM, or a Linux computer. Not on Windows.</dd>
+        <dd>On macOS, Windows and Linux with no Mac at all, and nothing to install or run: Apparition fetches Apple Music's Android libraries from Apple on first use and runs them itself. Apple has turned this kind of anisette away before and let it back, so it can stop working. The companion can offer it to your devices too, which suits a Mac with 8 GB that has no room for the VM, or a Windows or Linux computer.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server, or your own in Docker</dt>
-        <dd>Still works, on any computer with no Mac at all. To run your own, start the pinned anisette server container with Docker Desktop (or Docker in WSL on Windows) and give Apparition <code>http://localhost:6970</code>: the command is in the <a href="https://github.com/illixion/Apparition#run-your-own-anisette-server-with-docker">README</a>, and it is the way to sign in on Windows with no Mac and no server from anyone else. Or give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a public Android-based server passed a full sign-in on 12 November 2026.</dd>
+        <dd>Still works, on any computer with no Mac at all. To run your own, start the pinned anisette server container with Docker Desktop (or Docker in WSL on Windows) and give Apparition <code>http://localhost:6970</code>: the command is in the <a href="https://github.com/illixion/Apparition#run-your-own-anisette-server-with-docker">README</a>, and it signs in with no Mac and no server from anyone else, with Apple's libraries kept out of Apparition's own process. Or give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a public Android-based server passed a full sign-in on 12 November 2026.</dd>
       </div>
     </dl>
 
     <div class="qa">
       <details>
         <summary>Works with any computer, or none</summary>
-        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux, with no Mac. For a free Apple ID's sign-in, a Windows computer pairs with a Mac running Apparition or uses a third-party anisette server's address; a Mac or Linux computer can also use Apparition's own. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
+        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux, with no Mac. For a free Apple ID's sign-in, any of them can use Apparition's own Android anisette, run its own anisette server in Docker, give a third-party server's address, or pair with a Mac running Apparition. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
       </details>
     </div>
   </section>
@@ -260,7 +256,7 @@ apparition inject com.example.app \
     <div class="qa">
       <details open>
         <summary>What do I need?</summary>
-        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition: a Mac, a Windows PC or a Linux machine. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, Apparition's own Android anisette on macOS or Linux, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
+        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition: a Mac, a Windows PC or a Linux machine. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, Apparition's own Android anisette, your own server in Docker, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
       </details>
       <details>
         <summary>What is DebugTrace, and do I have to use it?</summary>
