@@ -23,6 +23,8 @@ signing again, while a file's contents can't change without a new signature.
       Nothing is signed until the Apparition repo's scripts/audit-release.sh passes on <dir>: it
       checks GitHub's attestations, audits the dependencies of the commit they name, and rebuilds
       the macOS files from that commit to get CI's bytes. Its report is listed with the release.
+      --skip-rebuild REASON signs with only the attestations and dependencies checked, when the
+      rebuild can't match for a known reason; the reason is listed with the release.
   scripts/publish.py urls <version> <file name> <url>... [--append]
       Replace (or add to) a file's download URLs. No signing needed.
   scripts/publish.py verify [<version>] [--download]
@@ -196,9 +198,16 @@ def cmd_add(args):
             fail(f"no {AUDIT}; the audit has to pass before a release is signed")
         print(f"==> audit ({AUDIT.relative_to(ROOT.parent)})")
         report = stage / "audit.json"
-        if subprocess.run([str(AUDIT), version, str(folder.resolve()), "--report", str(report)]).returncode != 0:
+        command = [str(AUDIT), version, str(folder.resolve()), "--report", str(report)]
+        if args.skip_rebuild:
+            # Attestations and dependencies only: the record says no file was reproduced, and why.
+            print(f"==> not rebuilding the macOS files: {args.skip_rebuild}")
+            command.append("--deps-only")
+        if subprocess.run(command).returncode != 0:
             fail("the audit didn't pass, so nothing was signed")
         audit = json.loads(report.read_text())
+        if args.skip_rebuild:
+            audit["rebuildSkipped"] = args.skip_rebuild
         report.unlink()
         sums = stage / "SHA256SUMS"
         sums.write_text("".join(f"{a['sha256']}  {a['name']}\n" for a in assets))
@@ -358,6 +367,8 @@ def main():
     add.add_argument("--gpg-agent", action="store_true")
     add.add_argument("--allow-older", action="store_true")
     add.add_argument("--dry-run", action="store_true")
+    add.add_argument("--skip-rebuild", metavar="REASON",
+                     help="sign without the audit's macOS rebuild matching CI's; REASON is kept in release.json")
     urls = sub.add_parser("urls")
     urls.add_argument("version")
     urls.add_argument("name")
