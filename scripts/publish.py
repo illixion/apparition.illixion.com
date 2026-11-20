@@ -220,6 +220,11 @@ def cmd_add(args):
             bless += ["--key-file", args.key_file]
         if args.gpg_agent:
             bless.append("--gpg-agent")
+            print("==> ready to request the release-key PIN and touch", flush=True)
+            try:
+                input("Press Return when the YubiKey is ready (Ctrl-C to cancel): ")
+            except EOFError:
+                fail("signing confirmation needs an interactive session")
         subprocess.run(bless, check=True)
         if args.dry_run:
             print(f"==> --dry-run: signed in {stage}, nothing listed")

@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "1.1.0",
+          "buildVersion": "631",
+          "date": "2026-11-20T10:36:37Z",
+          "localizedDescription": "## New\n- **Tools tab** in the device app, and the same tools from the command line (`processes`, `kill`, `location`, `logs`): running processes and ending an app, a simulated location, the device's console, activity and network monitors, connection conditions, developer service readiness, an app data browser with backups, and sysdiagnose.\n- **Older devices:** Apparition now runs on iOS and tvOS 17.4 and visionOS 2, down from 26, and reaches iPhones on iOS 17.0\u201317.3 over the cable. This is best effort. An app newer than the device is refused before signing, and installs to iOS 16 and earlier from the desktop app are marked untested.\n- **Apple TV away from home:** guidance for pairing at home and using a phone hotspot. Apparition stays running on the Apple TV while it is an app's JIT debugger.\n\n## Improved\n- A computer's pairing is healed when the device turns it down.\n- The companion is found again when the device changes network, including over Tailscale.\n- Mac apps are found over DebugTrace's local socket in the Store.\n- The desktop app keeps its diagnostics in `apparition-core.log` with private values removed, and keeps its own build service reachable by skipping proxies on loopback.\n- Install freshness is judged from the build's recorded sources, and a `-dirty` build says what made it so.\n- Pairing keys no longer appear in the log.\n- The macOS release files now build reproducibly.\n",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v1.1.0/Apparition-1.1.0-visionOS.ipa",
+          "size": 21918610,
+          "sha256": "1d5a6c56bdcc5d43dad50d307f5a0267de371d60013a2350287f2ad8d3610aa5",
+          "minOSVersion": "2.0"
+        },
+        {
           "version": "1.0.0",
           "buildVersion": "587",
           "date": "2026-11-13T18:40:41Z",
