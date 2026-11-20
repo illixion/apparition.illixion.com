@@ -145,6 +145,8 @@ def parse_sums(path):
 
 
 def cmd_add(args):
+    if args.gpg_agent and not sys.stdin.isatty():
+        fail("GPG-agent signing needs an interactive terminal; use a PTY so the readiness prompt can run before the key request")
     check_signers()
     version = args.version
     if not re.fullmatch(r"\d+(\.\d+){1,3}", version):
