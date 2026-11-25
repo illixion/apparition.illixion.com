@@ -198,7 +198,7 @@ apparition inject com.example.app \
 
   <section id="computers" class="computers" aria-labelledby="computers-title">
     <h2 id="computers-title">Mac, Windows or Linux</h2>
-    <p class="section-note">The desktop app runs on all three, and installing Apparition on your device, refreshing apps, launching with JIT and the companion work the same on each, with no Mac involved. A Mac is the most complete and most stable setup; Windows and Linux are fully supported, and we keep them working.</p>
+    <p class="section-note">The desktop app runs on macOS, Windows and Linux. Installing Apparition on your device, refreshing apps, launching with JIT and the companion work on each; free Apple ID signing requires a paired Mac.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Mac: the most complete</dt>
@@ -206,11 +206,11 @@ apparition inject com.example.app \
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Windows</dt>
-        <dd>Run Apparition Setup and choose Only me, or Everyone on this PC, which adds a background service that serves your devices with nobody signed in. Either way it lets your devices through Windows' firewall, so you aren't asked about it. SmartScreen may ask you to choose More info, then Run anyway. The zip is there too, to unzip anywhere. For an iPhone or iPad over USB, install Apple Devices (or iTunes) first; a Vision Pro or Apple TV pairs over Wi-Fi. To sign in with a free Apple ID with no Mac, choose Apparition's own (Android libraries), run your own anisette server with one Docker command (Docker Desktop, or Docker in WSL), give a third-party server's address, or pair with a Mac running Apparition. A paid account's certificate needs none of that. Windows on ARM works too.</dd>
+        <dd>Run Apparition Setup and choose Only me, or Everyone on this PC, which adds a background service that serves your devices with nobody signed in. Either way it lets your devices through Windows' firewall, so you aren't asked about it. SmartScreen may ask you to choose More info, then Run anyway. The zip is there too, to unzip anywhere. For an iPhone or iPad over USB, install Apple Devices (or iTunes) first; a Vision Pro or Apple TV pairs over Wi-Fi. To sign in with a free Apple ID, pair with a Mac running Apparition. A paid account's certificate needs no sign-in. Windows on ARM works too.</dd>
       </div>
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>Linux</dt>
-        <dd>Download the .deb (Debian, Ubuntu) or the AppImage for your CPU, x64 or ARM64. For an iPhone or iPad over USB, install and start <code>usbmuxd</code>. To sign in with a free Apple ID with no Mac, Apparition's own Android anisette needs nothing set up; or run your own server in Docker, give a third-party server's address, or pair with a Mac.</dd>
+        <dd>Download the .deb (Debian, Ubuntu) or the AppImage for your CPU, x64 or ARM64. For an iPhone or iPad over USB, install and start <code>usbmuxd</code>. To sign in with a free Apple ID, pair with a Mac running Apparition.</dd>
       </div>
     </dl>
     <div class="qa">
@@ -222,8 +222,8 @@ apparition inject com.example.app \
   </section>
 
   <section id="mac" class="mac" aria-labelledby="mac-title">
-    <h2 id="mac-title">Signing in with a free Apple ID: we recommend your own Mac</h2>
-    <p class="section-note">Since October 2026, Apple gives free-account signing only to a sign-in that ends as a Mac's, and it checks the anisette, the data that identifies the computer, closely. We recommend taking it from a Mac you own, as Xcode does: no one can take it away, nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. It is a recommendation, not a requirement: on macOS, Windows and Linux, Apparition can also make its own Android anisette, which passed a full sign-in on 12 November 2026, and third-party servers still work.</p>
+    <h2 id="mac-title">Signing in with a free Apple ID requires a Mac</h2>
+    <p class="section-note">Free Apple ID signing requires a Mac. Apparition gets anisette from macOS on a Mac you own, as Xcode does: nothing about your sign-in goes to a third party, and it behaves as Apple's own tools do. Pair your Windows or Linux computer with a Mac running Apparition to sign in through it.</p>
     <dl class="feature-list">
       <div>
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>A Mac on macOS 26 or earlier: the best</dt>
@@ -233,20 +233,12 @@ apparition inject com.example.app \
         <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M12 8v8M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>macOS 27: a small VM</dt>
         <dd>On macOS 27, the Mac keeps its anisette to itself. On an Apple-silicon Mac, Apparition makes a small macOS 26 virtual machine for it: one button, no administrator password, no security cost to the Mac you use. The limit: a VM's sign-ins confirm by SMS only, with no push to your devices.</dd>
       </div>
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16H7zM10 17h4"/></svg>Apparition's own Android anisette</dt>
-        <dd>On macOS, Windows and Linux with no Mac at all, and nothing to install or run: Apparition fetches Apple Music's Android libraries from Apple on first use and runs them itself. Apple has turned this kind of anisette away before and let it back, so it can stop working. The companion can offer it to your devices too, which suits a Mac with 8 GB that has no room for the VM, or a Windows or Linux computer.</dd>
-      </div>
-      <div>
-        <dt><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h7M14 7h7M10 17a4 4 0 0 0 4-4v-2a4 4 0 0 1 4-4"/></svg>A third-party anisette server, or your own in Docker</dt>
-        <dd>Still works, on any computer with no Mac at all. To run your own, start the pinned anisette server container with Docker Desktop (or Docker in WSL on Windows) and give Apparition <code>http://localhost:6970</code>: the command is in the <a href="https://github.com/illixion/Apparition#run-your-own-anisette-server-with-docker">README</a>, and it signs in with no Mac and no server from anyone else, with Apple's libraries kept out of Apparition's own process. Or give the address of any anisette v3 server in Settings and use Check server to see what it serves. We don't provide or recommend one, so you trust whoever runs it, and Apple decides what it accepts: a public Android-based server passed a full sign-in on 12 November 2026.</dd>
-      </div>
     </dl>
 
     <div class="qa">
       <details>
         <summary>Works with any computer, or none</summary>
-        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux, with no Mac. For a free Apple ID's sign-in, any of them can use Apparition's own Android anisette, run its own anisette server in Docker, give a third-party server's address, or pair with a Mac running Apparition. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
+        <p>Installing, refreshing, launching with JIT and the companion run on macOS, Windows and Linux. Free Apple ID sign-in requires a Mac; Windows and Linux computers pair with it to sign in. On iPhone, iPad and Vision Pro, LocalDevVPN can stand in for the companion with no computer at all, though it takes the device's only VPN slot.</p>
       </details>
     </div>
   </section>
@@ -256,7 +248,7 @@ apparition inject com.example.app \
     <div class="qa">
       <details open>
         <summary>What do I need?</summary>
-        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition: a Mac, a Windows PC or a Linux machine. To sign apps you need an Apple ID (a spare free one is best) or your own developer certificate, and for a free Apple ID an anisette source: a Mac you own, Apparition's own Android anisette, your own server in Docker, or a third-party server. Building your own apps needs Xcode on a Mac.</p>
+        <p>An Apple Vision Pro, iPhone, iPad or Apple TV, and a computer to install Apparition: a Mac, a Windows PC or a Linux machine. Free Apple ID sign-in requires a Mac running Apparition; Windows and Linux computers pair with it to sign in. A paid developer certificate needs no sign-in. Building your own apps needs Xcode on a Mac.</p>
       </details>
       <details>
         <summary>What is DebugTrace, and do I have to use it?</summary>
