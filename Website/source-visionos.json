@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "1.1.1",
+          "buildVersion": "636",
+          "date": "2026-11-25T17:35:38Z",
+          "localizedDescription": "- **Free Apple ID sign-in now requires a Mac.** Pair a Windows or Linux computer with a Mac running Apparition to sign in through the Mac.\n- **Launching an already-installed identical build no longer rebuilds it.**",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v1.1.1/Apparition-1.1.1-visionOS.ipa",
+          "size": 21920254,
+          "sha256": "0a126f898dffe8f7f5325520fc266eb581a4721baf2718b91b289af12faa4e9e",
+          "minOSVersion": "2.0"
+        },
+        {
           "version": "1.1.0",
           "buildVersion": "631",
           "date": "2026-11-20T10:36:37Z",
