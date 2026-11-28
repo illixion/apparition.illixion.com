@@ -17,6 +17,16 @@
       "tintColor": "#8B7CF6",
       "versions": [
         {
+          "version": "1.2.0",
+          "buildVersion": "655",
+          "date": "2026-11-28T10:58:53Z",
+          "localizedDescription": "**Developer Disk Image, handled for you.** Apparition now mounts the Developer Disk Image before JIT. It uses the image from the Mac's Xcode first, and downloads from GitHub only with your consent (`--allow-ddi-download`, the download row in Settings, or the desktop installer's Download button). If a JIT launch fails for lack of an image, the app explains why and offers a one-tap download, then retries by itself. A new tunnel is opened for JIT after the image mounts.\n\n**JIT away from home.** RemotePairing discovery recovers after network changes, including falling back to a reachable IPv4 endpoint, and live JIT sessions keep working across network changes. On cellular, the app now tells an iPhone to start JIT in Airplane Mode with LocalDevVPN when it can't reach its pairing service. This is verified on LTE with an iPhone and from an Apple TV on a phone hotspot.\n\n**Build and launch.** `build-and-sign` launches through Xcode (devicectl) when the native route isn't available. It also resolves devicectl and watchOS devices, and gains `--omit-watch` and `--strip-extensions`.\n\n**Also:** String Catalogs are enabled and pairing messages are localized. The docs cover offline JIT on cellular and remote access.",
+          "downloadURL": "https://github.com/illixion/Apparition/releases/download/v1.2.0/Apparition-1.2.0-tvOS.ipa",
+          "size": 14742573,
+          "sha256": "4c382940f19815570f3266ed3d285ac949cb08539b3985f084216e8ab1b16ffa",
+          "minOSVersion": "17.4"
+        },
+        {
           "version": "1.1.1",
           "buildVersion": "636",
           "date": "2026-11-25T17:35:38Z",
